@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TeamController@mypage');
 
-Auth::routes();
+Route::get('/teams/mypage', 'TeamController@mypage');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/teams/search', 'TeamController@search');

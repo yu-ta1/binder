@@ -1,0 +1,29 @@
+.header {
+  width: 100%;
+}
+.wrapper {
+  width: 960px;
+  height: 100%;
+  margin: 16px auto;
+}
+.mainpage {
+  width: 580px;
+  height: 100%;
+  float: right;
+}
+.main-sidebar {
+  width: 350px;
+  height: 100%;
+  float: left;
+}
+.footer {
+  width: 100%;
+}
+.clearfix::after {
+  height: 100%;
+  content: '';
+  display: flex;
+  clear: both;
+}
+html, body 
+{ height: 100%; }

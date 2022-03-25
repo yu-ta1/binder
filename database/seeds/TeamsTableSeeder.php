@@ -11,14 +11,39 @@ class TeamsTableSeeder extends Seeder
      */
     public function run()
     {
-        $i=1;
-        while($i<=10);{
+        DB::table('teams')->insert([
+            'user_id' => 1,
+            'name' => '小学校',
+        ]);
         
-            DB::table('users')->insert([
-                'name' => Str::random(10)
-            ]);
-            
-            $i++;
-        }
+        DB::table('teams')->insert([
+            'user_id' => 1,
+            'name' => '中学校',
+        ]);
+        
+        DB::table('teams')->insert([
+            'user_id' => 1,
+            'name' => '高校',
+        ]);
+        
+        DB::table('teams')->insert([
+            'user_id' => 2,
+            'name' => '大学',
+        ]);
+        
+        DB::table('teams')->insert([
+            'user_id' => 2,
+            'name' => '専門学校',
+        ]);
+        
+        DB::table('teams')->insert([
+            'user_id' => 3,
+            'name' => '保育園',
+        ]);
+        
+        DB::table('teams')->insert([
+            'user_id' => 4,
+            'name' => '幼稚園',
+        ]);
     }
 }
