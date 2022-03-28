@@ -16,3 +16,8 @@ Route::get('/', 'TeamController@mypage');
 Route::get('/teams/mypage', 'TeamController@mypage');
 
 Route::get('/teams/search', 'TeamController@search');
+
+Route::post('/team/join', 'TeamController@join');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

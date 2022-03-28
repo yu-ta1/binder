@@ -10,4 +10,9 @@ class Team extends Model
     {
         return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
+    
+    public function users(){
+        return $this->belongsToMany('App\User');
+    }
+    
 }

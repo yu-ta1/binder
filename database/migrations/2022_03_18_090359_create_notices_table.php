@@ -15,7 +15,7 @@ class CreateNoticesTable extends Migration
     {
         Schema::create('notices', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('team_id')->unsigned();
+            $table->integer('team_id')->unsigned();
         });
     }
 

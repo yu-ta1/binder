@@ -16,16 +16,18 @@
             </div>
             <form>
                 @csrf
-                <input type=text placeholder="「チーム名」もしくは「キーワード」検索">
+                <input type=text placeholder="「キーワード」検索">
                 <input type=submit value="検索">
             </form>
             @foreach ($teams as $team)
                 <div class="team">
                     <p>{{ $team->name }}</p>
-                    <form>
+                    
+                    <form meshod="POST" action="/team/join">
                         @csrf
                         <input type=submit value="参加">
                     </from>
+                    
                 </div>
             @endforeach
         </div>

@@ -11,9 +11,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        
-        $i=1;
-        while($i<=10);{
+            DB::table('users')->insert([
+                'name' => Str::random(10),
+                'email' => Str::random(10),
+                'password' => Hash::make('password'),
+            ]);
             
             DB::table('users')->insert([
                 'name' => Str::random(10),
@@ -21,8 +23,10 @@ class UsersTableSeeder extends Seeder
                 'password' => Hash::make('password'),
             ]);
             
-            $i++;
-        }
-        
+            DB::table('users')->insert([
+                'name' => Str::random(10),
+                'email' => Str::random(10),
+                'password' => Hash::make('password'),
+            ]);
     }
 }

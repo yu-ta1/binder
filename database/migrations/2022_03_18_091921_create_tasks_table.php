@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->string('Title', 50);
             $table->string('Body', 500);
-            $table->bigIncrements('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
         });
     }
 

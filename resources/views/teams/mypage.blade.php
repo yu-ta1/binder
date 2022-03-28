@@ -14,6 +14,13 @@
             <div style="padding: 10px; margin: 10px ; border: 3px solid #333333;">
                 <h1>マイページ</h1>
             </div>
+            <div style="padding: 10px; margin: 10px ; border: 3px solid #333333;">
+                <h3>チーム一覧</h3>
+                <from>
+                    @csrf
+                    <input type="submit" value="チーム作成">
+                </form>
+            </div>
             @foreach ($teams as $team)
                 <ul class='teams'>
                     <li>{{$team->name}}</li>

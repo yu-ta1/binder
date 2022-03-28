@@ -17,8 +17,8 @@ class CreateNoticePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('Title', 50);
             $table->string('Body', 2000);
-            $table->bigIncrements('user_id')->unsigned();
-            $table->bigIncrements('notice_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->integer('notice_id')->unsigned();
         });
     }
 
