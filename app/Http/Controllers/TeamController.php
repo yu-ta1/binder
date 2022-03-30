@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Team;
 use Illuminate\Http\Request;
-use Illuminata\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
@@ -20,8 +21,9 @@ class TeamController extends Controller
     
     public function join(Request $request)
     {
-        $team=Team::find($request->input('team_id'));
-
-        $team->users()->attach(Auth::id());
+        $user=Auth::user();
+        $user->teams()->attach($request->input('team_id'));
+        
+        return redirect('/teams/search');
     }
 }

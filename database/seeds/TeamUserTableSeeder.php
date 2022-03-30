@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UserTeamTableSeeder extends Seeder
+class TeamUserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,32 +11,32 @@ class UserTeamTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user_team')->insert([
+        DB::table('team_user')->insert([
             'user_id' => 1,
             'team_id' => 1,
         ]);
         
-        DB::table('user_team')->insert([
+        DB::table('team_user')->insert([
             'user_id' => 1,
             'team_id' => 2,
         ]);
         
-        DB::table('user_team')->insert([
+        DB::table('team_user')->insert([
             'user_id' => 1,
             'team_id' => 3,
         ]);
         
-        DB::table('user_team')->insert([
+        DB::table('team_user')->insert([
             'user_id' => 2,
             'team_id' => 1,
         ]);
         
-        DB::table('user_team')->insert([
+        DB::table('team_user')->insert([
             'user_id' => 2,
             'team_id' => 2,
         ]);
         
-        DB::table('user_team')->insert([
+        DB::table('team_user')->insert([
             'user_id' => 3,
             'team_id' => 1,
         ]);

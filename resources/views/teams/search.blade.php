@@ -20,13 +20,13 @@
                 <input type=submit value="検索">
             </form>
             @foreach ($teams as $team)
-                <div class="team">
-                    <p>{{ $team->name }}</p>
+                <div class="team" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                     
-                    <form meshod="POST" action="/team/join">
-                        @csrf
-                        <input type=submit value="参加">
-                    </from>
+                        <form method="POST" action="/team/join">
+                            @csrf
+                            <p>{{ $team->name }}</p>
+                            <button type="submit" name="team_id" value="{{$team->id}}">参加</button>
+                        </from>
                     
                 </div>
             @endforeach
