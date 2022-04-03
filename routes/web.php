@@ -10,8 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', 'TeamController@mypage');
+
+Route::get('/teams', 'TeamController@search');
 
 Route::get('/teams/mypage', 'TeamController@mypage');
 

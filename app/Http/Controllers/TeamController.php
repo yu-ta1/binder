@@ -11,19 +11,27 @@ class TeamController extends Controller
 {
     public function mypage(Team $team)
     {
-        return view('teams/mypage')->with(['teams' => $team->get()]);  
+        return view('/teams/mypage')->with(['teams' => $team->get()]);  
     }
     
-    public function search(Team $team)
+    public function search(Team $team, Request $request)
     {
-        return view('teams/search')->with(['teams' => $team->get()]);  
+        $teams=Team::all();
+        $keyword=$request->input('keyword');
+        $query=Team::query();
+        if(!empty($keyword)){
+            $query->where('Name','LIKE',"%{$keyword}%");
+        }
+        $teams=$query->get();
+        
+        return view('/teams/search',compact('teams','keyword'))->with(['teams' => $team->get()])->with('keyword',$keyword);
     }
     
-    public function join(Request $request)
+    public function join(Team $team,Request $request)
     {
         $user=Auth::user();
         $user->teams()->attach($request->input('team_id'));
         
-        return redirect('/teams/search');
+        return view('/teams/search')->with(['teams' => $team->get()]);
     }
 }

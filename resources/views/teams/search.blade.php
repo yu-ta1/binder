@@ -14,22 +14,26 @@
             <div style="padding: 10px; margin: 10px; border: 3px solid #333333;">
                 <h1>チーム探し</h1>
             </div>
-            <form>
+            
+            <from class="from_team_search" action="{{url('/teams')}}" meshod="GET">
                 @csrf
-                <input type=text placeholder="「キーワード」検索">
+                <input type=text name="search" value="{{$keyword}}" placeholder="「キーワード」検索">
                 <input type=submit value="検索">
             </form>
+            
             @foreach ($teams as $team)
-                <div class="team" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
-                    
-                        <form method="POST" action="/team/join">
-                            @csrf
-                            <p>{{ $team->name }}</p>
+                <div class="teams" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
+                    <form method="POST" action="/team/join">
+                        @csrf
+                        <p>{{ $team->name }}</p>
+                        <p>参加メンバー{{$team->users()->count()}}人</p>
+                        @if(!in_array(Auth::user(),(array)$team->users()))
                             <button type="submit" name="team_id" value="{{$team->id}}">参加</button>
-                        </from>
-                    
+                        @endif
+                    </from>
                 </div>
             @endforeach
+            
         </div>
     </body>
 </html>

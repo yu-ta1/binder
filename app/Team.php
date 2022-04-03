@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class Team extends Model
+class Team extends Model 
 {
     public function getPaginateByLimit(int $limit_count = 5)
     {
