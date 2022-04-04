@@ -25,9 +25,9 @@
                 <div class="teams" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                     <form method="POST" action="/team/join">
                         @csrf
-                        <p>{{ $team->name }}</p>
+                        <p class="name">{{ $team->name }}</p>
                         <p>参加メンバー{{$team->users()->count()}}人</p>
-                        @if(!in_array(Auth::user(),(array)$team->users()))
+                        @if(!($team->users()->pluck('id')->contains(Auth::user()->id)))
                             <button type="submit" name="team_id" value="{{$team->id}}">参加</button>
                         @endif
                     </from>
