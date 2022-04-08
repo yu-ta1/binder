@@ -16,4 +16,11 @@ class Team extends Model
         return $this->belongsToMany('App\User');
     }
     
+    public function notices(){
+        return $this->hasOne('App\Notice');
+    }
+    
+    public function time_lines(){
+        return $this->hasOne('App\Time_Line');
+    }
 }

@@ -18,7 +18,9 @@ Route::get('/teams/mypage', 'TeamController@mypage');
 
 Route::get('/teams/search', 'TeamController@search');
 
-Route::post('/team/join', 'TeamController@join');
+Route::post('/teams/join', 'TeamController@join');
+
+Route::get('/posts/notice', 'PostController@notice');
 
 Auth::routes();
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTimeLinePostCommentsTable extends Migration
+class CreateTimeLinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTimeLinePostCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('time__line__post__comments', function (Blueprint $table) {
+        Schema::create('time_lines', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('team_id')->unsigned();
         });
     }
 
@@ -26,6 +26,6 @@ class CreateTimeLinePostCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('time__line__post__comments');
+        Schema::dropIfExists('time_lines');
     }
 }

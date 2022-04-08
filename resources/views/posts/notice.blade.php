@@ -12,21 +12,22 @@
     <body>
         <div class="main" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
             <div style="padding: 10px; margin: 10px ; border: 3px solid #333333;">
-                <h1>マイページ</h1>
-            </div>
-            <div style="padding: 10px; margin: 10px ; border: 3px solid #333333;">
-                <h3>チーム一覧</h3>
+                <h1>おしらせ</h1>
                 <from>
                     @csrf
-                    <input type="submit" value="チーム作成">
+                    <input type="submit" value="投稿">
                 </form>
             </div>
-            @foreach ($teams as $team)
-                @if(($team->users()->pluck('id')->contains(Auth::user()->id)))
-                    <ul class="teams">
-                        <li><a href="/posts/notice" value="{{$team->id}}">{{$team->name}}</li>
-                    </ul>
-                @endif
+            @foreach ($notices as $notice)
+                <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
+                    <p>ユーザー名</p>
+                    <p class="body">
+                        ここにbody
+                    </p>
+                    <P class='updated_at'>
+                        ここに時間
+                    </P>
+                </div>
             @endforeach
         </div>
     </body>

@@ -13,9 +13,10 @@ class CreateTimeLinePostGoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('time__line__post__goods', function (Blueprint $table) {
+        Schema::create('time_line_post_goods', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->integer('time_line_post_id')->unsigned();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateTimeLinePostGoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('time__line__post__goods');
+        Schema::dropIfExists('time_line_post_goods');
     }
 }

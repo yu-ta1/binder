@@ -34,4 +34,5 @@ class TeamController extends Controller
         
         return view('/teams/search')->with(['teams' => $team->get()]);
     }
+    
 }

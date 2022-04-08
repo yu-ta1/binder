@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class NoticesTableSeeder extends Seeder
+class NoticePostGoodsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,8 +11,9 @@ class NoticesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('notices')->insert([
-            'team_id' => 1,
+        DB::table('notice_post_goods')->insert([
+            'user_id' => 1,
+            'notice_post_id' => 1,
         ]);
     }
 }

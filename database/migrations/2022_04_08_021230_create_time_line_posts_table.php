@@ -13,7 +13,7 @@ class CreateTimeLinePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('time__line__posts', function (Blueprint $table) {
+        Schema::create('time_line_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Title', 50);
             $table->string('Body', 2000);
@@ -29,6 +29,6 @@ class CreateTimeLinePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('time__line__posts');
+        Schema::dropIfExists('time_line_posts');
     }
 }

@@ -23,7 +23,7 @@
             
             @foreach ($teams as $team)
                 <div class="teams" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
-                    <form method="POST" action="/team/join">
+                    <form method="POST" action="/teams/join">
                         @csrf
                         <p class="name">{{ $team->name }}</p>
                         <p>参加メンバー{{$team->users()->count()}}人</p>

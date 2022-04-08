@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNoticePostGoodsTable extends Migration
+class CreateNoticePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateNoticePostGoodsTable extends Migration
      */
     public function up()
     {
-        Schema::create('notice__post__goods', function (Blueprint $table) {
+        Schema::create('notice_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->string('Title', 50);
+            $table->string('Body', 2000);
+            $table->integer('user_id')->unsigned();
+            $table->integer('notice_id')->unsigned();
         });
     }
 
@@ -26,6 +29,6 @@ class CreateNoticePostGoodsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notice__post__goods');
+        Schema::dropIfExists('notice_posts');
     }
 }

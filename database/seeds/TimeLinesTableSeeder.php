@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class NoticesTableSeeder extends Seeder
+class TimeLinesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class NoticesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('notices')->insert([
+        DB::table('time_lines')->insert([
             'team_id' => 1,
         ]);
     }

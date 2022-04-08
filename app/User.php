@@ -41,4 +41,8 @@ class User extends Authenticatable
     public function teams(){
         return $this->belongsToMany('App\Team');
     }
+    
+    public function notice_posts(){
+        return $this->hasMany('App\Notice');
+    }
 }
