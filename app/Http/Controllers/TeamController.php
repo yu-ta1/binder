@@ -20,11 +20,11 @@ class TeamController extends Controller
         $keyword=$request->input('keyword');
         $query=Team::query();
         if(!empty($keyword)){
-            $query->where('Name','LIKE',"%{$keyword}%");
+            $query->where('name','LIKE',"%{$keyword}%");
         }
         $teams=$query->get();
         
-        return view('/teams/search',compact('teams','keyword'))->with(['teams' => $team->get()])->with('keyword',$keyword);
+        return view('/teams/search',compact('teams','keyword'));
     }
     
     public function join(Team $team,Request $request)

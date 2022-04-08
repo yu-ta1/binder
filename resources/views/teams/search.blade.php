@@ -15,10 +15,10 @@
                 <h1>チーム探し</h1>
             </div>
             
-            <from class="from_team_search" action="{{url('/teams')}}" meshod="GET">
+            <form class="form_team_search" action="/teams/search" method="GET">
                 @csrf
-                <input type=text name="search" value="{{$keyword}}" placeholder="「キーワード」検索">
-                <input type=submit value="検索">
+                <input type="text" name="keyword" value="{{$keyword}}" placeholder="「キーワード」検索"/>
+                <input type="submit" value="検索"/>
             </form>
             
             @foreach ($teams as $team)
