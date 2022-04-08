@@ -15,4 +15,12 @@ class Notice_Post extends Model
     public function notices(){
         return $this->belongsTo('App\Notice');
     }
+    
+    public function notice_post_comments(){
+        return $this->hasMany('App\Notice_Post_Comment');
+    }
+    
+    public function notice_post_goods(){
+        return $this->hasMany('App\Notice_Post_Goods');
+    }
 }

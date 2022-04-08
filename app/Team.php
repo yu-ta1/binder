@@ -23,4 +23,8 @@ class Team extends Model
     public function time_lines(){
         return $this->hasOne('App\Time_Line');
     }
+    
+    public function files(){
+        return $this->hasMany('App\File');
+    }
 }
