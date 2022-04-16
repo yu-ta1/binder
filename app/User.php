@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -43,7 +44,7 @@ class User extends Authenticatable
     }
     
     public function notice_posts(){
-        return $this->hasMany('App\Notice');
+        return $this->hasMany('App\Notice_Post');
     }
     
     public function notice_post_comments(){

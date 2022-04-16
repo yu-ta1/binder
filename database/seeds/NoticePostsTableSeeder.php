@@ -16,6 +16,8 @@ class NoticePostsTableSeeder extends Seeder
             'body' => Str::random(20),
             'user_id' => 1,
             'notice_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('notice_posts')->insert([
@@ -23,6 +25,17 @@ class NoticePostsTableSeeder extends Seeder
             'body' => Str::random(20),
             'user_id' => 1,
             'notice_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        DB::table('notice_posts')->insert([
+            'title' => Str::random(5),
+            'body' => Str::random(20),
+            'user_id' => 4,
+            'notice_id' => 4,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

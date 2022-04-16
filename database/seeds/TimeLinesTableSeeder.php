@@ -14,5 +14,17 @@ class TimeLinesTableSeeder extends Seeder
         DB::table('time_lines')->insert([
             'team_id' => 1,
         ]);
+        
+        DB::table('time_lines')->insert([
+            'team_id' => 2,
+        ]);
+        
+        DB::table('time_lines')->insert([
+            'team_id' => 3,
+        ]);
+        
+        DB::table('time_lines')->insert([
+            'team_id' => 4,
+        ]);
     }
 }

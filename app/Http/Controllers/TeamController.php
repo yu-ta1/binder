@@ -30,7 +30,7 @@ class TeamController extends Controller
     public function join(Team $team,Request $request)
     {
         $user=Auth::user();
-        $user->teams()->attach($request->input('team_id'));
+        $user->teams()->attach($request->input('team_id'),['role'=>'メンバー']);
         
         return view('/teams/search')->with(['teams' => $team->get()]);
     }

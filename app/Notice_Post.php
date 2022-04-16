@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Notice_Post extends Model
 {
+    protected $table = 'notice_posts';
     
     public function users(){
         return $this->belongsTo('App\User');

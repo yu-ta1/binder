@@ -14,5 +14,17 @@ class NoticesTableSeeder extends Seeder
         DB::table('notices')->insert([
             'team_id' => 1,
         ]);
+        
+        DB::table('notices')->insert([
+            'team_id' => 2,
+        ]);
+        
+        DB::table('notices')->insert([
+            'team_id' => 3,
+        ]);
+        
+        DB::table('notices')->insert([
+            'team_id' => 4,
+        ]);
     }
 }

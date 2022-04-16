@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Time_Line_Post extends Model
 {
+    protected $table = 'time_line_posts';
     
     public function users(){
         return $this->belongsTo('App\User');

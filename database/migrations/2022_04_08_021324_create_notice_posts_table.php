@@ -19,6 +19,7 @@ class CreateNoticePostsTable extends Migration
             $table->string('Body', 2000);
             $table->integer('user_id')->unsigned();
             $table->integer('notice_id')->unsigned();
+            $table->timestamps();
         });
     }
 

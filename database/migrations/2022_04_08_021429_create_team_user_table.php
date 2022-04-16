@@ -17,8 +17,7 @@ class CreateTeamUserTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('team_id')->unsigned();
             $table->primary(['team_id','user_id']);
-            
-            
+            $table->string('role');
         });
     }
 

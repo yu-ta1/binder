@@ -22,6 +22,10 @@ Route::post('/teams/join', 'TeamController@join');
 
 Route::get('/posts/notice', 'PostController@notice');
 
+Route::get('/posts/time_line','PostController@time_line');
+
+Route::get('/posts/create', 'PostController@create');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
