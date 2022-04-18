@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class Notice extends Model
 {
+    protected $table = 'notices';
+    
     public function teams(){
         return $this->belongsTo('App\Team');
     }

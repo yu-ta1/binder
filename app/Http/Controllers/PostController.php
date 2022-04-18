@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function notice(Notice_Post $notice_post, User $user)
+    public function notice(Team $team)
     {
-        $user=Notice_Post::with(['users'])->first();
-        return view('/posts/notice')->with(['notices'=>$notice_post->get(),'user'=>$user->get()]);
+        $notices=$team->notices()->first();
+        $notice_post=$notices->notice_posts()->first();
+        return view('/posts/notice')->with(['team'=>$team->first(),'notices'=>$notice_post->get()]);
     }
     
     public function time_line(Time_Line_Post $time_line_post)

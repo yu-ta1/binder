@@ -27,7 +27,7 @@
                         @csrf
                         <p class="name">{{ $team->name }}</p>
                         <p>参加メンバー{{$team->users()->count()}}人</p>
-                        @if(!($team->users()->pluck('id')->contains(Auth::user()->id)))
+                        @if(!($team->users()->pluck('user_id')->contains(Auth::user()->id)))
                             <button type="submit" name="team_id" value="{{$team->id}}">参加</button>
                         @endif
                     </from>
