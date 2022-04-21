@@ -11,14 +11,15 @@ use App\Time_Line;
 use App\Time_Line_Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     public function notice(Team $team)
     {
         $notices=$team->notices()->first();
-        $notice_post=$notices->notice_posts()->first();
-        return view('/posts/notice')->with(['team'=>$team->first(),'notices'=>$notice_post->get()]);
+        $notice_post=$notices->notice_posts()->get();
+        return view('/posts/notice')->with(['team'=>$team,'notices'=>$notice_post]);
     }
     
     public function time_line(Time_Line_Post $time_line_post)

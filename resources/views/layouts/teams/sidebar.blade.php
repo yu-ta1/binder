@@ -11,6 +11,7 @@
             <aside class="main-sidebar" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                 <section class="sidebar">
                     <ul class="sidebar-menu">
+                        <br>
                         <li><a href="/teams/mypage">マイページ</a></li>
                         <li><a href="/teams/search">チーム探し</a></li>
                     </ul>

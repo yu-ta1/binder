@@ -22,7 +22,7 @@
                 </form>
             </div>
             @foreach ($teams as $team)
-                @if(($team->users()->pluck('id')->contains(Auth::user()->id)))
+                @if(($team->users()->pluck('user_id')->contains(Auth::user()->id)))
                     <ul class="teams">
                         <li><a href="/posts/{{$team->id}}" value="{{$team->id}}">{{$team->name}}</li>
                     </ul>

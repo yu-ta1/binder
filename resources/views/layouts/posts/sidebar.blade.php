@@ -10,13 +10,14 @@
         <div class="wrapper clearfix">
             <aside class="main-sidebar" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                 <section class="sidebar">
-                    <h2 style='padding: 10px; margin-bottom: 10px; border: 2px solid #333333;'>aaa</h2>
                     <ul class="sidebar-menu">
+                        <br>
                         <li><a href="/teams/mypage">マイページ</a></li>
                         <li><a href="/teams/search">チーム探し</a></li>
+                        <br>
                         <li><a href="/posts/notice">おしらせ</a></li>
                         <li><a href="/posts/time_line">タイムライン</a></li>
-                        ～アウトプット～
+                        アウトプットファイル作成
                         <li><a href="/posts/file">(作成されたファイル名)</a></li>
                     </ul>
                 </section>
