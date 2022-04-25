@@ -15,7 +15,7 @@ class CreateNoticePostCommentsTable extends Migration
     {
         Schema::create('notice_post_comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Body', 500);
+            $table->string('body', 500);
             $table->integer('user_id')->unsigned();
             $table->integer('notice_post_id')->unsigned();
         });

@@ -12,6 +12,7 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         DB::table('posts')->insert([
+            'id' => 1,
             'title' => Str::random(5),
             'body' => Str::random(20),
             'user_id' => 1,
@@ -21,6 +22,7 @@ class PostsTableSeeder extends Seeder
         ]);
         
         DB::table('posts')->insert([
+            'id' => 2,
             'title' => Str::random(5),
             'body' => Str::random(20),
             'user_id' => 1,
@@ -30,6 +32,7 @@ class PostsTableSeeder extends Seeder
         ]);
         
         DB::table('posts')->insert([
+            'id' => 3,
             'title' => Str::random(5),
             'body' => Str::random(20),
             'user_id' => 2,
@@ -39,6 +42,7 @@ class PostsTableSeeder extends Seeder
         ]);
         
         DB::table('posts')->insert([
+            'id' => 4,
             'title' => Str::random(5),
             'body' => Str::random(20),
             'user_id' => 1,
@@ -48,6 +52,7 @@ class PostsTableSeeder extends Seeder
         ]);
         
         DB::table('posts')->insert([
+            'id' => 5,
             'title' => Str::random(5),
             'body' => Str::random(20),
             'user_id' => 2,

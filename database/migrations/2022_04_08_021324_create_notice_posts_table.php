@@ -15,8 +15,8 @@ class CreateNoticePostsTable extends Migration
     {
         Schema::create('notice_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Title', 50);
-            $table->string('Body', 2000);
+            $table->string('title', 50);
+            $table->string('body', 2000);
             $table->integer('user_id')->unsigned();
             $table->integer('notice_id')->unsigned();
             $table->timestamps();
