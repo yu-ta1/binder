@@ -1,4 +1,4 @@
-@extends('layouts.teams.sidebar')
+@extends('layouts.homes.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
             </div>
             <div style="padding: 10px; margin: 10px ; border: 3px solid #333333;">
                 <h3>チーム一覧</h3>
-                <from>
+                <form action="/homes/create" method="GET">
                     @csrf
                     <input type="submit" value="チーム作成">
                 </form>
@@ -24,7 +24,7 @@
             @foreach ($teams as $team)
                 @if(($team->users()->pluck('user_id')->contains(Auth::user()->id)))
                     <ul class="teams">
-                        <li><a href="/posts/{{$team->id}}" value="{{$team->id}}">{{$team->name}}</li>
+                        <li><a href="/teams/{{$team->id}}/notices/index" value="{{$team->id}}">{{$team->name}}</li>
                     </ul>
                 @endif
             @endforeach

@@ -12,13 +12,9 @@
                 <section class="sidebar">
                     <ul class="sidebar-menu">
                         <br>
-                        <li><a href="/teams/mypage">マイページ</a></li>
-                        <li><a href="/teams/search">チーム探し</a></li>
-                        <br>
-                        <li><a href="/posts/notice">おしらせ</a></li>
-                        <li><a href="/posts/time_line">タイムライン</a></li>
-                        アウトプットファイル作成
-                        <li><a href="/posts/file">(作成されたファイル名)</a></li>
+                        <li><a href="/homes/mypage">マイページ</a></li>
+                        <li><a href="/homes/search">チーム探し</a></li>
+                        <li><a href="/homes/create">チーム作成</a></li>
                     </ul>
                 </section>
             </aside>

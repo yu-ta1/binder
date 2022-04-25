@@ -12,17 +12,29 @@
 */
 Route::get('/', 'TeamController@mypage');
 
-Route::get('/teams', 'TeamController@search');
+Route::get('/homes', 'TeamController@search');
 
-Route::get('/teams/mypage', 'TeamController@mypage');
+Route::get('/homes/mypage', 'TeamController@mypage');
 
-Route::get('/teams/search', 'TeamController@search');
+Route::get('/homes/search', 'TeamController@search');
 
-Route::post('/teams/join', 'TeamController@join');
+Route::get('/homes/create', 'TeamController@create');
 
-Route::get('/posts/create', 'PostController@create');
+Route::post('/homes/join', 'TeamController@join');
 
-Route::get('/posts/{team}', 'PostController@notice');
+Route::post('/teams', 'TeamController@store');
+
+Route::post('/teams/notices/create', 'PostController@notice_store');
+
+Route::post('/teams/{team}/time_lines/create', 'PostController@time_line_store');
+
+Route::get('/teams/{team}/notices/index', 'PostController@notice');
+
+Route::get('/teams/{team}/notices/create', 'PostController@notice_create');
+
+Route::get('/teams/{team}/time_lines/index', 'PostController@time_line');
+
+Route::get('/teams/{team}/time_lines/create', 'PostController@time_line_create');
 
 Auth::routes();
 

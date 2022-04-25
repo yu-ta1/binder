@@ -1,5 +1,5 @@
-@extends('layouts.posts.sidebar')
-
+@extends('layouts.teams.sidebar')
+@section('team',$team)
 @section('content')
 <!DOCTYPE html>
 <html>
@@ -13,18 +13,20 @@
         <div class="main" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
             <div style="padding: 10px; margin: 10px ; border: 3px solid #333333;">
                 <h1>おしらせ</h1>
-                <form action="/posts/create" method="GET">
-                    @csrf
-                    <input type="submit" value="投稿">
-                </form>
+                @if(DB::table('team_user')->where('team_id',$team->id)->where('user_id',Auth::user()->id)->first()->role == 'オーナー')
+                    <form action="/teams/{{$team->id}}/notices/create" method="GET">
+                        @csrf
+                        <input type="submit" value="投稿">
+                    </form>
+                @endif
             </div>
-            @foreach ($time_lines as $time_line)
+            @foreach ($notice_posts as $notice_post)
                 <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                     <p class="body">
-                        {{$time_line->Body}}
+                        {{$notice_post->Body}}
                     </p>
                     <P class='updated_at'>
-                        {{$time_line->updated_at}}
+                        {{$notice_post->updated_at}}
                     </P>
                 </div>
             @endforeach

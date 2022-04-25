@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('Body', 2000);
             $table->integer('user_id')->unsigned();
             $table->integer('file_id')->unsigned();
+            $table->timestamps();
         });
     }
 

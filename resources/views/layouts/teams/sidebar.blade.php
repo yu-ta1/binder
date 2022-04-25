@@ -9,11 +9,17 @@
     <body>
         <div class="wrapper clearfix">
             <aside class="main-sidebar" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
+                <div style="padding: 10px; margin: 10px ; border: 3px solid #333333;">{{$team->name}}</div>
                 <section class="sidebar">
                     <ul class="sidebar-menu">
                         <br>
-                        <li><a href="/teams/mypage">マイページ</a></li>
-                        <li><a href="/teams/search">チーム探し</a></li>
+                        <li><a href="/homes/mypage">マイページ</a></li>
+                        <li><a href="/homes/search">チーム探し</a></li>
+                        <br>
+                        <li><a href="/teams/{{$team->id}}/notices/index">おしらせ</a></li>
+                        <li><a href="/teams/{{$team->id}}/time_lines/index">タイムライン</a></li>
+                        アウトプットファイル作成
+                        <li><a href="/teams/{{$team->id}}/files/index">(作成されたファイル名)</a></li>
                     </ul>
                 </section>
             </aside>

@@ -1,4 +1,4 @@
-@extends('layouts.teams.sidebar')
+@extends('layouts.homes.sidebar')
 
 @section('content')
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
                 <h1>チーム探し</h1>
             </div>
             
-            <form class="form_team_search" action="/teams/search" method="GET">
+            <form class="form_team_search" action="/homes/search" method="GET">
                 @csrf
                 <input type="text" name="keyword" value="{{$keyword}}" placeholder="「キーワード」検索"/>
                 <input type="submit" value="検索"/>
@@ -23,14 +23,14 @@
             
             @foreach ($teams as $team)
                 <div class="teams" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
-                    <form method="POST" action="/teams/join">
+                    <form method="POST" action="/homes/join">
                         @csrf
                         <p class="name">{{ $team->name }}</p>
                         <p>参加メンバー{{$team->users()->count()}}人</p>
                         @if(!($team->users()->pluck('user_id')->contains(Auth::user()->id)))
                             <button type="submit" name="team_id" value="{{$team->id}}">参加</button>
                         @endif
-                    </from>
+                    </form>
                 </div>
             @endforeach
             

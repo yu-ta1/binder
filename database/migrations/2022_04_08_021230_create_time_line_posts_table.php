@@ -19,6 +19,7 @@ class CreateTimeLinePostsTable extends Migration
             $table->string('Body', 2000);
             $table->integer('user_id')->unsigned();
             $table->integer('time_line_id')->unsigned();
+            $table->timestamps();
         });
     }
 

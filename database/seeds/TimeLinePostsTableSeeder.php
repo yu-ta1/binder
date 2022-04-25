@@ -16,6 +16,8 @@ class TimeLinePostsTableSeeder extends Seeder
             'body' => Str::random(20),
             'user_id' => 1,
             'time_line_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('time_line_posts')->insert([
@@ -23,6 +25,8 @@ class TimeLinePostsTableSeeder extends Seeder
             'body' => Str::random(20),
             'user_id' => 1,
             'time_line_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('time_line_posts')->insert([
@@ -30,6 +34,8 @@ class TimeLinePostsTableSeeder extends Seeder
             'body' => Str::random(20),
             'user_id' => 1,
             'time_line_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('time_line_posts')->insert([
@@ -37,6 +43,8 @@ class TimeLinePostsTableSeeder extends Seeder
             'body' => Str::random(20),
             'user_id' => 2,
             'time_line_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('time_line_posts')->insert([
@@ -44,6 +52,8 @@ class TimeLinePostsTableSeeder extends Seeder
             'body' => Str::random(20),
             'user_id' => 1,
             'time_line_id' => 4,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }
