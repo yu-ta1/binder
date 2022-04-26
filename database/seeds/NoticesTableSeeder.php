@@ -13,18 +13,26 @@ class NoticesTableSeeder extends Seeder
     {
         DB::table('notices')->insert([
             'team_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('notices')->insert([
             'team_id' => 2,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('notices')->insert([
             'team_id' => 3,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('notices')->insert([
             'team_id' => 4,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

@@ -13,18 +13,26 @@ class TimeLinesTableSeeder extends Seeder
     {
         DB::table('time_lines')->insert([
             'team_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('time_lines')->insert([
             'team_id' => 2,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('time_lines')->insert([
             'team_id' => 3,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         DB::table('time_lines')->insert([
             'team_id' => 4,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

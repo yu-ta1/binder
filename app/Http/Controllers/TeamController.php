@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Team;
+use App\Notice;
+use App\Time_Line;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -41,7 +43,7 @@ class TeamController extends Controller
         return view('/homes/search')->with(['teams' => $team->get()]);
     }
     
-    public function store(Request $request, Team $team)
+    public function store(Request $request, Team $team, Notice $notice, Time_Line $time_line)
     {
         
         // $team->fill(
@@ -53,6 +55,11 @@ class TeamController extends Controller
         $team->save();
         
         $user->teams()->attach($team->id,['role'=>'オーナー']);
+        
+        $notice->team_id=$team->id;
+        $notice->save();
+        $time_line->team_id=$team->id;
+        $time_line->save();
         
         return redirect('/homes/mypage');
         

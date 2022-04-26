@@ -16,6 +16,7 @@ class CreateTimeLinesTable extends Migration
         Schema::create('time_lines', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('team_id')->unsigned();
+            $table->timestamps();
         });
     }
 
