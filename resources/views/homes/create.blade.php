@@ -19,7 +19,7 @@
                 <p>チーム名</p>
                 <form action="/teams" method="POST">
                     @csrf
-                    <input type="text" name="team[name]" placeholder="チーム名" value="{{ old('team.name') }}"/>
+                    <input type="text" name="name" placeholder="チーム名" value="{{ old('team.name') }}"/>
                     <p class="name_error" style="color:red">{{ $errors->first('team.name') }}</p>
                     <input type="submit" value="保存"/>
                 </form>

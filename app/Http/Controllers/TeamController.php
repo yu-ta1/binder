@@ -6,6 +6,7 @@ use App\User;
 use App\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TeamController extends Controller
 {
@@ -42,27 +43,16 @@ class TeamController extends Controller
     
     public function store(Request $request, Team $team)
     {
-        // $input = $request['team'];
-        // $team->fill($input)->save();
-        // $user=Auth::user();
-        // $user->teams()->attach($request->input('team_id'),['role'=>'オーナー']);
-        // return redirect('/teams/' . $team->id);
         
-        $input = $request['team'];
+        // $team->fill(
+        //     $request->all(),
+        // );
         $user=Auth::user();
-        $team->name=$input;
+        $team->name=$request['name'];
         $team->user_id=$user->id;
         $team->save();
         
-        $user->teams()->attach($request->input('team_id'),['role'=>'オーナー']);
-        
-        // $input = $request['team'];
-        // $user=Auth::user()->id;
-        
-        // Team::create([
-        //     'name' => $input,
-        //     'user_id' => $user,
-        // ]);
+        $user->teams()->attach($team->id,['role'=>'オーナー']);
         
         return redirect('/homes/mypage');
         
