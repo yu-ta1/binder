@@ -20,14 +20,20 @@
             </div>
             @foreach ($time_line_posts as $time_line_post)
                 <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
+                    <p class="title">
+                        {{$time_line_post->title}}
+                    </p>
                     <p class="body">
-                        {{$time_line_post->Body}}
+                        {{$time_line_post->body}}
                     </p>
                     <P class='updated_at'>
                         {{$time_line_post->updated_at}}
                     </P>
                 </div>
             @endforeach
+            <div class='paginate'>
+                {{ $time_line_posts->links() }}
+            </div>
         </div>
     </body>
 </html>

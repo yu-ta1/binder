@@ -15,9 +15,8 @@
                 <h1>投稿作成画面</h1>
             </div>
         </div>
-        @can('isAdmin',$team)
         <div style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
-            <form action="/posts" method="POST">
+            <form action="/teams/{{$team->id}}/notices/store" method="POST">
                 @csrf
                 <div class="title">
                     <h3>Title</h3>
@@ -33,9 +32,6 @@
             </form>
             <div class="back"><p>[<a href="/teams/{{$team->id}}/notices/index">おしらせに戻る</a>]</p></div>
         </div>
-        @else
-        <p>オーナーのみ投稿を作成できます。</p>
-        @endcan
     </body>
 </html>
 @endsection

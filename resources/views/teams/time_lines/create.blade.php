@@ -16,7 +16,7 @@
             </div>
         </div>
         <div style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
-            <form action="/teams/{{$team->id}}/time_lines/create" method="POST">
+            <form action="/teams/{{$team->id}}/time_lines/store" method="POST">
                 @csrf
                 <div class="title">
                     <h3>Title</h3>

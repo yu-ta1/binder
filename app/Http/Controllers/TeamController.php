@@ -45,10 +45,6 @@ class TeamController extends Controller
     
     public function store(Request $request, Team $team, Notice $notice, Time_Line $time_line)
     {
-        
-        // $team->fill(
-        //     $request->all(),
-        // );
         $user=Auth::user();
         $team->name=$request['name'];
         $team->user_id=$user->id;
@@ -62,7 +58,6 @@ class TeamController extends Controller
         $time_line->save();
         
         return redirect('/homes/mypage');
-        
     }
     
 }
