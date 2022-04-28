@@ -21,29 +21,23 @@
                 @endif
             </div>
             <div>
-            @foreach ($notice_posts as $notice_post)
                 <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                     <p class="title">
-                        <a href="/teams/{{$team->id}}/notices/show/{{$notice_post->id}}" value="{{$notice_post->id}}">
-                        {{$notice_post->title}}
+                        {{$notice_posts->title}}
                     </p>
                     <p class="body">
-                        {{$notice_post->body}}
+                        {{$notice_posts->body}}
                     </p>
                     <P class='updated_at'>
-                        {{$notice_post->updated_at}}
+                        {{$notice_posts->updated_at}}
                     </P>
                     <P class='comment'>
-                        コメント{{DB::table('notice_post_comments')->where('notice_post_id',$notice_post->id)->count()}}
+                        コメント{{DB::table('notice_post_comments')->where('notice_post_id',$notice_posts->id)->count()}}
                     </P>
                     <P class='good'>
-                        いいね{{DB::table('notice_post_goods')->where('notice_post_id',$notice_post->id)->count()}}
+                        いいね{{DB::table('notice_post_goods')->where('notice_post_id',$notice_posts->id)->count()}}
                     </P>
                 </div>
-            @endforeach
-            </div>
-            <div class='paginate'>
-                {{ $notice_posts->links() }}
             </div>
         </div>
     </body>

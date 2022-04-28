@@ -26,7 +26,7 @@ class TeamController extends Controller
             $query->where('name','LIKE',"%{$keyword}%");
         }
         $teams=$query->get();
-        
+
         return view('/homes/search',compact('teams','keyword'));
     }
     

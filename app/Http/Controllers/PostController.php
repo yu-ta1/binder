@@ -64,4 +64,14 @@ class PostController extends Controller
         return redirect('/teams/'.$team->id.'/time_lines/index');
         
     }
+    
+    public function notice_show(Team $team, Notice_Post $notice_post)
+    {
+        return view('teams/notices/show')->with(['team'=>$team,'notice_posts'=>$notice_post]);
+    }
+    
+    public function time_line_show(Team $team, Time_Line_Post $time_line_post)
+    {
+        return view('teams/time_lines/show')->with(['team'=>$team,'time_line_posts'=>$time_line_post]);
+    }
 }

@@ -28,12 +28,15 @@ Route::post('/teams', 'TeamController@store');
 
 Route::get('/teams/{team}/notices/index', 'PostController@notice');
 
+Route::get('/teams/{team}/notices/show/{notice_post}', 'PostController@notice_show');
+
 Route::get('/teams/{team}/notices/create', 'PostController@notice_create');
 
 Route::post('/teams/{team}/notices/store', 'PostController@notice_store');
 
-
 Route::get('/teams/{team}/time_lines/index', 'PostController@time_line');
+
+Route::get('/teams/{team}/time_lines/show/{time_line_post}', 'PostController@time_line_show');
 
 Route::get('/teams/{team}/time_lines/create', 'PostController@time_line_create');
 
