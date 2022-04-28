@@ -24,7 +24,7 @@
             @foreach ($notice_posts as $notice_post)
                 <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                     <p class="title">
-                        <a href="/teams/{{$team->id}}/notices/show/{{$notice_post->id}}" value="{{$notice_post->id}}">
+                        <a href="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/show" value="{{$notice_post->id}}">
                         {{$notice_post->title}}
                     </p>
                     <p class="body">

@@ -23,21 +23,31 @@
             <div>
                 <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                     <p class="title">
-                        {{$notice_posts->title}}
+                        {{$notice_post->title}}
                     </p>
                     <p class="body">
-                        {{$notice_posts->body}}
+                        {{$notice_post->body}}
                     </p>
                     <P class='updated_at'>
-                        {{$notice_posts->updated_at}}
+                        {{$notice_post->updated_at}}
                     </P>
                     <P class='comment'>
-                        コメント{{DB::table('notice_post_comments')->where('notice_post_id',$notice_posts->id)->count()}}
+                        コメント{{DB::table('notice_post_comments')->where('notice_post_id',$notice_post->id)->count()}}
                     </P>
                     <P class='good'>
-                        いいね{{DB::table('notice_post_goods')->where('notice_post_id',$notice_posts->id)->count()}}
+                        いいね{{DB::table('notice_post_goods')->where('notice_post_id',$notice_post->id)->count()}}
                     </P>
                 </div>
+                <div>
+                    <form action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/comments" method="POST">
+                        @csrf
+                        <div class="body">
+                            <textarea name="comment[body]" placeholder="コメント">{{ old('comment.body') }}</textarea>
+                            <p class="body__error" style="color:red">{{ $errors->first('comment.body') }}</p>
+                        </div>
+                        <input type="submit" value="送信"/>
+                    </form>
+                </div>    
                 @foreach ($notice_post_comments as $notice_post_comment)
                     <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                         <p>

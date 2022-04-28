@@ -7,6 +7,7 @@ use App\Team;
 use App\Post;
 use App\Notice;
 use App\Notice_Post;
+use App\Notice_Post_Comment;
 use App\Time_Line;
 use App\Time_Line_Post;
 use Illuminate\Http\Request;
@@ -68,12 +69,23 @@ class PostController extends Controller
     public function notice_show(Team $team, Notice_Post $notice_post)
     {
         $notice_post_comments=DB::table('notice_post_comments')->where('notice_post_id',$notice_post->id)->get();
-        return view('teams/notices/show')->with(['team'=>$team,'notice_posts'=>$notice_post,'notice_post_comments'=>$notice_post_comments]);
+        return view('teams/notices/show')->with(['team'=>$team,'notice_post'=>$notice_post,'notice_post_comments'=>$notice_post_comments]);
     }
     
     public function time_line_show(Team $team, Time_Line_Post $time_line_post)
     {
         $time_line_post_comments=DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->get();
         return view('teams/time_lines/show')->with(['team'=>$team,'time_line_posts'=>$time_line_post,'time_line_post_comments'=>$time_line_post_comments]);
+    }
+    
+    public function notice_comment(Request $request, Team $team, Notice_Post $notice_post, Notice_Post_Comment $notice_post_comment)
+    {
+        $user=Auth::user();
+        $notice_post_comment->body=$request['comment']['body'];
+        $notice_post_comment->user_id=$user->id;
+        $notice_post_comment->notice_post_id=$notice_post->id;
+        $notice_post_comment->save();
+        
+        return redirect('/teams/'.$team->id.'/notice_posts/'.$notice_post->id.'/show');
     }
 }

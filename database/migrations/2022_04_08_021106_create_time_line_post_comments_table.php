@@ -18,6 +18,7 @@ class CreateTimeLinePostCommentsTable extends Migration
             $table->string('body', 500);
             $table->integer('user_id')->unsigned();
             $table->integer('time_line_post_id')->unsigned();
+            $table->timestamps();
         });
     }
 

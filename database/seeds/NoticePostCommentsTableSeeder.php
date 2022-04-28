@@ -15,6 +15,8 @@ class NoticePostCommentsTableSeeder extends Seeder
             'body' => Str::random(20),
             'user_id' => 1,
             'notice_post_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }
