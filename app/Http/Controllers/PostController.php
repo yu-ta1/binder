@@ -67,11 +67,13 @@ class PostController extends Controller
     
     public function notice_show(Team $team, Notice_Post $notice_post)
     {
-        return view('teams/notices/show')->with(['team'=>$team,'notice_posts'=>$notice_post]);
+        $notice_post_comments=DB::table('notice_post_comments')->where('notice_post_id',$notice_post->id)->get();
+        return view('teams/notices/show')->with(['team'=>$team,'notice_posts'=>$notice_post,'notice_post_comments'=>$notice_post_comments]);
     }
     
     public function time_line_show(Team $team, Time_Line_Post $time_line_post)
     {
-        return view('teams/time_lines/show')->with(['team'=>$team,'time_line_posts'=>$time_line_post]);
+        $time_line_post_comments=DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->get();
+        return view('teams/time_lines/show')->with(['team'=>$team,'time_line_posts'=>$time_line_post,'time_line_post_comments'=>$time_line_post_comments]);
     }
 }

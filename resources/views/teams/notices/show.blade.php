@@ -38,6 +38,13 @@
                         いいね{{DB::table('notice_post_goods')->where('notice_post_id',$notice_posts->id)->count()}}
                     </P>
                 </div>
+                @foreach ($notice_post_comments as $notice_post_comment)
+                    <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
+                        <p>
+                            {{$notice_post_comment->body}}
+                        </p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </body>
