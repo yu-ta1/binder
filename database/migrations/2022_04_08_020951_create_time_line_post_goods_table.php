@@ -17,6 +17,7 @@ class CreateTimeLinePostGoodsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
             $table->integer('time_line_post_id')->unsigned();
+            $table->timestamps();
         });
     }
 

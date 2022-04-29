@@ -40,7 +40,7 @@ class TeamController extends Controller
         $user=Auth::user();
         $user->teams()->attach($request->input('team_id'),['role'=>'メンバー']);
         
-        return view('/homes/search')->with(['teams' => $team->get()]);
+        return redirect('/homes/search');
     }
     
     public function store(Request $request, Team $team, Notice $notice, Time_Line $time_line)

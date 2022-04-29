@@ -14,6 +14,8 @@ class NoticePostGoodsTableSeeder extends Seeder
         DB::table('notice_post_goods')->insert([
             'user_id' => 1,
             'notice_post_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }

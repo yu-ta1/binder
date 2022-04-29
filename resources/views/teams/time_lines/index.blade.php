@@ -19,10 +19,9 @@
                 </form>
             </div>
             @foreach ($time_line_posts as $time_line_post)
-                <form>
                 <div class="posts" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
                     <p class="title">
-                        <a href="/teams/{{$team->id}}/time_lines/show/{{$time_line_post->id}}" value="{{$time_line_post->id}}">
+                        <a href="/teams/{{$team->id}}/time_line_posts/{{$time_line_post->id}}/show" value="{{$time_line_post->id}}">
                         {{$time_line_post->title}}
                     </p>
                     <p class="body">
@@ -38,7 +37,6 @@
                         いいね{{DB::table('time_line_post_goods')->where('time_line_post_id',$time_line_post->id)->count()}}
                     </P>
                 </div>
-                </form>
             @endforeach
             <div class='paginate'>
                 {{ $time_line_posts->links() }}

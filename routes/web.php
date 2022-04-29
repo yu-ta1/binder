@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// TeamController
+
 Route::get('/', 'TeamController@mypage');
 
 Route::get('/homes', 'TeamController@search');
@@ -24,25 +27,33 @@ Route::post('/homes/join', 'TeamController@join');
 
 Route::post('/teams', 'TeamController@store');
 
-// Route::post('/teams/notices/create', 'PostController@notice_store');
+// NoticePostController
 
-Route::get('/teams/{team}/notices/index', 'PostController@notice');
+Route::get('/teams/{team}/notices/index', 'NoticePostController@notice');
 
-Route::get('/teams/{team}/notice_posts/{notice_post}/show', 'PostController@notice_show');
+Route::get('/teams/{team}/notice_posts/{notice_post}/show', 'NoticePostController@notice_show');
 
-Route::get('/teams/{team}/notices/create', 'PostController@notice_create');
+Route::get('/teams/{team}/notices/create', 'NoticePostController@notice_create');
 
-Route::post('/teams/{team}/notices/store', 'PostController@notice_store');
+Route::post('/teams/{team}/notices/store', 'NoticePostController@notice_store');
 
-Route::post('/teams/{team}/notice_posts/{notice_post}/comments', 'PostController@notice_comment');
+Route::post('/teams/{team}/notice_posts/{notice_post}/comments', 'NoticePostController@notice_comment');
 
-Route::get('/teams/{team}/time_lines/index', 'PostController@time_line');
+Route::post('/teams/{team}/notice_posts/{notice_post}/goods', 'NoticePostController@notice_good');
 
-Route::get('/teams/{team}/time_lines/show/{time_line_post}', 'PostController@time_line_show');
+// TimeLinePostController
 
-Route::get('/teams/{team}/time_lines/create', 'PostController@time_line_create');
+Route::get('/teams/{team}/time_lines/index', 'TimeLinePostController@time_line');
 
-Route::post('/teams/{team}/time_lines/store', 'PostController@time_line_store');
+Route::get('/teams/{team}/time_line_posts/{time_line_post}/show', 'TimeLinePostController@time_line_show');
+
+Route::get('/teams/{team}/time_lines/create', 'TimeLinePostController@time_line_create');
+
+Route::post('/teams/{team}/time_lines/store', 'TimeLinePostController@time_line_store');
+
+Route::post('/teams/{team}/time_line_posts/{time_line_post}/comments', 'TimeLinePostController@time_line_comment');
+
+Route::post('/teams/{team}/time_line_posts/{time_line_post}/goods', 'TimeLinePostController@time_line_good');
 
 Auth::routes();
 

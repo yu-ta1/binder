@@ -18,8 +18,6 @@
                         <br>
                         <li><a href="/teams/{{$team->id}}/notices/index">おしらせ</a></li>
                         <li><a href="/teams/{{$team->id}}/time_lines/index">タイムライン</a></li>
-                        アウトプットファイル作成
-                        <li><a href="/teams/{{$team->id}}/files/index">(作成されたファイル名)</a></li>
                     </ul>
                 </section>
             </aside>

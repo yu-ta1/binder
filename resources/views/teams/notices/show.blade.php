@@ -34,9 +34,13 @@
                     <P class='comment'>
                         コメント{{DB::table('notice_post_comments')->where('notice_post_id',$notice_post->id)->count()}}
                     </P>
-                    <P class='good'>
-                        いいね{{DB::table('notice_post_goods')->where('notice_post_id',$notice_post->id)->count()}}
-                    </P>
+                    <form class="notice_post_goods" action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/goods" method="POST">
+                        @csrf
+                        <P class='good'>
+                            いいね{{DB::table('notice_post_goods')->where('notice_post_id',$notice_post->id)->count()}}
+                        </P>
+                        <input type="submit" value="いいね"/>
+                    </form>
                 </div>
                 <div>
                     <form action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/comments" method="POST">
