@@ -12,14 +12,14 @@
                 <section class="sidebar">
                     <ul class="sidebar-menu">
                         <br>
-                        <li><a href="/homes/mypage">マイページ</a></li>
-                        <li><a href="/homes/search">チーム探し</a></li>
-                        <li><a href="/homes/create">チーム作成</a></li>
+                        <li class"name"><a href="/homes/mypage">マイページ</a></li>
+                        <li class"name"><a href="/homes/search">チーム探し</a></li>
+                        <li class"name"><a href="/homes/create">チーム作成</a></li>
                     </ul>
                 </section>
             </aside>
             <div class="mainpage">
-                <h1>@yield('content')</h1>
+                <h1>@yield('contents')</h1>
             </div>
         </div>
     </body>

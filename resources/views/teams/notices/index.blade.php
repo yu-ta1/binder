@@ -1,6 +1,7 @@
 @extends('layouts.teams.sidebar')
+@extends('layouts.app')
 @section('team',$team)
-@section('content')
+@section('contents')
 <!DOCTYPE html>
 <html>
     <head>

@@ -1,6 +1,7 @@
 @extends('layouts.homes.sidebar')
+@extends('layouts.app')
 
-@section('content')
+@section('contents')
 <!DOCTYPE html>
 <html>
     <head>

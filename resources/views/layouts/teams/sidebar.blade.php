@@ -22,7 +22,7 @@
                 </section>
             </aside>
             <div class="mainpage">
-                <h1>@yield('content')</h1>
+                <h1>@yield('contents')</h1>
             </div>
         </div>
     </body>
