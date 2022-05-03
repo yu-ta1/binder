@@ -43,6 +43,14 @@ class TeamController extends Controller
         return redirect('/homes/search');
     }
     
+    public function exit(Team $team,Request $request)
+    {
+        $user=Auth::user();
+        $team_exit=DB::table('team_user')->where('user_id',$user->id)->where('team_id',$team->id)->delete();
+        
+        return redirect('/homes/search');
+    }
+    
     public function store(Request $request, Team $team, Notice $notice, Time_Line $time_line)
     {
         $user=Auth::user();

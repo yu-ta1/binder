@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth']], function(){
     
     Route::post('/homes/join', 'TeamController@join');
     
+    Route::delete('/homes/{team}/exit', 'TeamController@exit');
+    
     Route::post('/teams', 'TeamController@store');
     
     // NoticePostController

@@ -33,14 +33,30 @@
                                     @if(!($team->users()->pluck('user_id')->contains(Auth::user()->id)))
                                         <button class="button2" type="submit" name="team_id" value="{{$team->id}}">参加</button>
                                     @endif
-                                    <p class="name">参加メンバー{{$team->users()->count()}}人</p>
                                 </form>
-                            </div>
+                                <form method="POST" action="/homes/{{$team->id}}/exit">
+                                    @csrf
+                                    @method('DELETE')
+                                    @if(($team->users()->pluck('user_id')->contains(Auth::user()->id)))
+                                        <button class="button2" type="submit" name="team_id" value="{{$team->id}}" onClick="return Check()">退会</button>
+                                    @endif
+                                </form>
+                                <p class="name">参加メンバー{{$team->users()->count()}}人</p>
+                            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
                         @endforeach
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+        <script type="text/javascript">
+            function Check(){
+                var checked = confirm("本当に退会しますか？");
+                if (checked == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
 </html>
 @endsection
