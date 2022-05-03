@@ -7,6 +7,6 @@ function check() {
   textValue = textValue.split("\n").join("<br>");
 
   // divタグの要素にtextareaの情報を付与
-  const test = document.querySelector('.test');
+  const test = document.querySelector('.comment_body');
   test.innerHTML = textValue;
 };

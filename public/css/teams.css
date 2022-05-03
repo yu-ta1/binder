@@ -26,6 +26,8 @@
 
 .comment_body{
     font-size: 20px;
+    padding: 0px 40px;
+    white-space: pre-line;
 }
 
 .updated_at{

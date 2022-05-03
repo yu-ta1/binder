@@ -67,10 +67,5 @@
             </div>
         </div>
     </body>
-    <script>
-        function check() {
-          let textValue = document.form.comment.value;
-          textValue = textValue.split("\n").join("<br>");
-    </script>
 </html>
 @endsection
