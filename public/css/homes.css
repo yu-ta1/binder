@@ -1,18 +1,78 @@
 .main_title{
-    color : red;
     padding: 10px;
-    margin: 30px 3% 50px 3%;
-    border: 3px solid #333333;
+    margin: 30px 1% 150px 1%;
+    border-bottom: 3px solid #333333;
+}
+
+.main_title_name{
+    font-size: 60px;
+    color: red;
+    margin-bottom: 40px
 }
 
 .team_index{
     width: 50%;
-    margin:0 auto
+    margin:0 auto;
 }
 
-.main{
+.team_index2{
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 10px ;
     border: 2px solid #333333;
-    
+    border-radius: 10px;
+}
+
+.sub_title{
+    margin: 20px;
+    font-size: 50px;
+}
+
+.button{
+    width: 100px;
+    height: 40px;
+    margin: 60px 20px 0px 20px;
+    font-size: 15px;
+    float: right;
+}
+
+.team_box{
+    border-top: 3px solid #333333 ;
+    margin: 10% 3% 3% 3%;
+}
+
+.team{
+    border-bottom: 1px solid #333333;
+    margin: 60px 20px 60px 20px;
+}
+
+.form_team_search{
+    width: 250px;
+    height: 40px;
+    margin: 20px 0px 0px 20px;
+    font-size: 15px;
+    float: left;
+}
+
+.form_team_search2{
+    width: 80px;
+    height: 40px;
+    margin: 20px 10px 0px 10px;
+    font-size: 15px
+}
+
+/*.teams{*/
+/*    padding: 10px;*/
+/*    margin: 60px 20px 60px 20px;*/
+/*    border: 2px solid #333333;*/
+/*}*/
+
+.name{
+    font-size: 20px
+}
+
+.button2{
+    width: 100px;
+    height: 40px;
+    margin: 20px 20px 50px 20px;
+    font-size: 15px
 }

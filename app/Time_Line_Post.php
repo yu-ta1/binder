@@ -11,7 +11,7 @@ class Time_Line_Post extends Model
     
     protected $fillable = ['title','body','user_id','time_line_id','updated_at','created_at'];
     
-    public function getPaginateByLimit(int $time_line_id, int $limit_count = 2)
+    public function getPaginateByLimit(int $time_line_id, int $limit_count = 20)
     {
         return $this->where('time_line_id',$time_line_id)->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }

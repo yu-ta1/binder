@@ -9,7 +9,7 @@ class Notice_Post extends Model
 {
     protected $table = 'notice_posts';
     
-    public function getPaginateByLimit(int $notice_id, int $limit_count = 2)
+    public function getPaginateByLimit(int $notice_id, int $limit_count = 20)
     {
         return $this->where('notice_id',$notice_id)->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }

@@ -8,13 +8,13 @@
     </head>
     <body>
         <div class="wrapper clearfix">
-            <aside class="main-sidebar" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
+            <aside class="main-sidebar" style="padding: 10px; margin-bottom: 10px; border-right: 2px solid #333333;">
                 <section class="sidebar">
                     <ul class="sidebar-menu">
                         <br>
-                        <li class"name"><a href="/homes/mypage">マイページ</a></li>
-                        <li class"name"><a href="/homes/search">チーム探し</a></li>
-                        <li class"name"><a href="/homes/create">チーム作成</a></li>
+                        <li class="menu"><a href="/homes/mypage">マイページ</a></li>
+                        <li class="menu"><a href="/homes/search">チーム探し</a></li>
+                        <li class="menu"><a href="/homes/create">チーム作成</a></li>
                     </ul>
                 </section>
             </aside>

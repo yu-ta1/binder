@@ -14,22 +14,24 @@
     <body>
         <div class="main">
             <div class="main_title">
-                <h1>マイページ</h1>
+                <h1 class="main_title_name">マイページ</h1>
             </div>
             <div class="team_index">
-                <div  style="padding: 10px; margin: 10px ; border: 3px solid #333333;">
-                    <h3>チーム一覧</h3>
+                <div  class="team_index2">
                     <form action="/homes/create" method="GET">
                         @csrf
-                        <input type="submit" value="チーム作成">
+                        <input class="button" type="submit" value="チーム作成">
                     </form>
-                    @foreach ($teams as $team)
-                        @if(($team->users()->pluck('user_id')->contains(Auth::user()->id)))
-                            <ul class="teams">
-                                <li><a href="/teams/{{$team->id}}/notices/index" value="{{$team->id}}">{{$team->name}}</li>
-                            </ul>
-                        @endif
-                    @endforeach
+                    <h3 class="sub_title">チーム一覧</h3>
+                    <div class="team_box">
+                        @foreach ($teams as $team)
+                            @if(($team->users()->pluck('user_id')->contains(Auth::user()->id)))
+                                <ul class="team">
+                                    <li><a href="/teams/{{$team->id}}/notices/index" value="{{$team->id}}">{{$team->name}}</li>
+                                </ul>
+                            @endif
+                        @endforeach
+                    </div>    
                 </div>
             </div>
         </div>

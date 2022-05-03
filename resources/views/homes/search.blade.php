@@ -7,34 +7,39 @@
     <head>
         <meta charset="utf-8">
         <title>Binder</title>
+        <link rel="stylesheet" href="{{ asset('css/homes.css') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <div class="main" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
-            <div style="padding: 10px; margin: 10px; border: 3px solid #333333;">
-                <h1>チーム探し</h1>
+        <div class="main">
+            <div class="main_title">
+                <h1 class="main_title_name">マイページ</h1>
             </div>
-            
-            <form class="form_team_search" action="/homes/search" method="GET">
-                @csrf
-                <input type="text" name="keyword" value="{{$keyword}}" placeholder="「キーワード」検索"/>
-                <input type="submit" value="検索"/>
-            </form>
-            
-            @foreach ($teams as $team)
-                <div class="teams" style="padding: 10px; margin-bottom: 10px; border: 2px solid #333333;">
-                    <form method="POST" action="/homes/join">
+            <div class="team_index">
+                <div  class="team_index2">
+                    <h3 class="sub_title">チーム探し</h3>
+                    <form action="/homes/search" method="GET">
                         @csrf
-                        <p class="name">{{ $team->name }}</p>
-                        <p>参加メンバー{{$team->users()->count()}}人</p>
-                        @if(!($team->users()->pluck('user_id')->contains(Auth::user()->id)))
-                            <button type="submit" name="team_id" value="{{$team->id}}">参加</button>
-                        @endif
+                        <input class="form_team_search" type="text" name="keyword" value="{{$keyword}}" placeholder="「キーワード」検索"/>
+                        <input class="form_team_search2" type="submit" value="検索"/>
                     </form>
+                    <div class="team_box">
+                        @foreach ($teams as $team)
+                            <div class="team">
+                                <form method="POST" action="/homes/join">
+                                    @csrf
+                                    <p class="name">チーム名：{{ $team->name }}</p>
+                                    @if(!($team->users()->pluck('user_id')->contains(Auth::user()->id)))
+                                        <button class="button2" type="submit" name="team_id" value="{{$team->id}}">参加</button>
+                                    @endif
+                                    <p class="name">参加メンバー{{$team->users()->count()}}人</p>
+                                </form>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-            @endforeach
-            
+            </div>
         </div>
     </body>
 </html>
