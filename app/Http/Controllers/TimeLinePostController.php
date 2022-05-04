@@ -45,6 +45,18 @@ class TimeLinePostController extends Controller
         return view('teams/time_lines/show')->with(['team'=>$team,'time_line_post'=>$time_line_post,'time_line_post_comments'=>$time_line_post_comments]);
     }
     
+    public function time_line_delete(Request $request, Team $team, Time_Line_Post $time_line_post)
+    {
+        if(!DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->doesntExist()){
+            DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->delete();
+        }
+        
+        $time_line_post_delete=Time_Line_Post::where('id',$time_line_post->id)->first();
+        $time_line_post_delete->delete();
+        
+        return redirect('/teams/'.$team->id.'/time_lines/index');
+    }
+    
     public function time_line_comment(Request $request, Team $team, Time_Line_Post $time_line_post, Time_Line_Post_Comment $time_line_post_comment)
     {
         $user=Auth::user();
@@ -67,6 +79,14 @@ class TimeLinePostController extends Controller
             $good_delete=Time_Line_Post_Good::where('time_line_post_id',$time_line_post->id)->where('user_id',$user->id)->first();
             $good_delete->delete();
         }
+        return redirect('/teams/'.$team->id.'/time_line_posts/'.$time_line_post->id.'/show');
+    }
+    
+    public function comment_delete(Request $request, Team $team, Time_Line_Post $time_line_post, Time_Line_Post_Comment $time_line_post_comment)
+    {
+        $comment_delete=Time_Line_Post_Comment::where('id',$time_line_post_comment->id)->first();
+        $comment_delete->delete();
+        
         return redirect('/teams/'.$team->id.'/time_line_posts/'.$time_line_post->id.'/show');
     }
     

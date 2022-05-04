@@ -16,10 +16,13 @@
         <div class="main">
             <div class="main_title">
                 <h1 class="main_title_name">タイムライン</h1>
-                <form action="/teams/{{$team->id}}/notices/create" method="GET">
-                    @csrf
-                    <input class="form_team_search2" type="submit" value="投稿">
-                </form>
+                @if($time_line_post->user_id === Auth::user()->id)
+                    <form action="/teams/{{$team->id}}/time_line_posts/{{$time_line_post->id}}/delete" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input class="form_team_search2" type="submit" onClick="return Check()" value="投稿削除"/>
+                    </form>
+                @endif
             </div>
             <div class="post_boxs">
                 <div class="posts">
@@ -59,17 +62,38 @@
                 <div class="comment_index">
                     @foreach ($time_line_post_comments as $time_line_post_comment)
                         <div class="comment_box">
+                            @if($time_line_post_comment->user_id === Auth::user()->id)
+                                <form action="/teams/{{$team->id}}/time_line_posts/{{$time_line_post->id}}/comments/{{$time_line_post_comment->id}}/delete" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input class="delete_button" type="submit" onClick="return Check()" value="削除"/>
+                                </form>
+                            @endif
                             <p class="user_name2">
                                 {{DB::table('users')->where('id',$time_line_post_comment->user_id)->first()->name}}
                             </p>
                             <p class="comment_body">
                                 {{$time_line_post_comment->body}}
                             </p>
+                            <p class="updated_at">
+                                {{$time_line_post_comment->updated_at}}
+                            </p>
+                            <p Class="adjustment"></p>
                         </div>
                     @endforeach
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            function Check(){
+                var checked = confirm("本当に削除しますか？");
+                if (checked == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>
 @endsection

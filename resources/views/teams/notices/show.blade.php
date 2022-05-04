@@ -16,10 +16,11 @@
         <div class="main">
             <div class="main_title">
                 <h1 class="main_title_name">おしらせ</h1>
-                @if(DB::table('team_user')->where('team_id',$team->id)->where('user_id',Auth::user()->id)->first()->role == 'オーナー')
-                    <form action="/teams/{{$team->id}}/notices/create" method="GET">
+                @if($notice_post->user_id === Auth::user()->id)
+                    <form action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/delete" method="POST">
                         @csrf
-                        <input class="form_team_search2" type="submit" value="投稿">
+                        @method('DELETE')
+                        <input class="form_team_search2" type="submit" onClick="return Check()" value="投稿削除"/>
                     </form>
                 @endif
             </div>
@@ -61,17 +62,38 @@
                 <div class="comment_index">
                     @foreach ($notice_post_comments as $notice_post_comment)
                         <div class="comment_box">
+                            @if($notice_post_comment->user_id === Auth::user()->id)
+                                <form action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/comments/{{$notice_post_comment->id}}/delete" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input class="delete_button" type="submit" onClick="return Check()" value="削除"/>
+                                </form>
+                            @endif
                             <p class="user_name2">
                                 {{DB::table('users')->where('id',$notice_post_comment->user_id)->first()->name}}
                             </p>
                             <p class="comment_body">
                                 {{$notice_post_comment->body}}
                             </p>
+                            <p class="updated_at">
+                                {{$notice_post_comment->updated_at}}
+                            </p>
+                            <p Class="adjustment"></p>
                         </div>
                     @endforeach
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            function Check(){
+                var checked = confirm("本当に削除しますか？");
+                if (checked == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>
 @endsection

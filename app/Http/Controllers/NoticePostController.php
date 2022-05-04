@@ -44,6 +44,18 @@ class NoticePostController extends Controller
         return view('teams/notices/show')->with(['team'=>$team,'notice_post'=>$notice_post,'notice_post_comments'=>$notice_post_comments]);
     }
     
+    public function notice_delete(Request $request, Team $team, Notice_Post $notice_post)
+    {
+        if(!DB::table('notice_post_comments')->where('notice_post_id',$notice_post->id)->doesntExist()){
+            DB::table('notice_post_comments')->where('notice_post_id',$notice_post->id)->delete();
+        }
+        
+        $notice_post_delete=Notice_Post::where('id',$notice_post->id)->first();
+        $notice_post_delete->delete();
+        
+        return redirect('/teams/'.$team->id.'/notices/index');
+    }
+    
     public function notice_comment(Request $request, Team $team, Notice_Post $notice_post, Notice_Post_Comment $notice_post_comment)
     {
         $user=Auth::user();
@@ -67,6 +79,14 @@ class NoticePostController extends Controller
             $good_delete=Notice_Post_Good::where('notice_post_id',$notice_post->id)->where('user_id',$user->id)->first();
             $good_delete->delete();
         }
+        return redirect('/teams/'.$team->id.'/notice_posts/'.$notice_post->id.'/show');
+    }
+    
+    public function comment_delete(Request $request, Team $team, Notice_Post $notice_post, Notice_Post_Comment $notice_post_comment)
+    {
+        $comment_delete=Notice_Post_Comment::where('id',$notice_post_comment->id)->first();
+        $comment_delete->delete();
+        
         return redirect('/teams/'.$team->id.'/notice_posts/'.$notice_post->id.'/show');
     }
 }

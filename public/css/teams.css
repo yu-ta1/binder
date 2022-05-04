@@ -34,13 +34,16 @@
 .body{
     border-bottom: 1px solid #333333;
     margin: 10px;
-    padding: 30px 0px;
+    padding-bottom: 30px;
     font-size: 20px;
+    white-space: pre-line;
 }
 
 .comment_body{
+    border-bottom: 1px solid #333333;
+    margin: 10px;
     font-size: 20px;
-    padding: 0px 40px;
+    padding: 0px 40px 30px 40px;
     white-space: pre-line;
 }
 
@@ -78,4 +81,16 @@
     font-size: 20px;
     margin: 10px;
     float: right;
+}
+
+.adjustment{
+    margin-bottom: 30px;
+}
+
+.delete_button{
+    float: right;
+    width: 50px;
+    height: 30px;
+    margin: 10px;
+    font-size: 10px;
 }

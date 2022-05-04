@@ -40,9 +40,13 @@ Route::group(['middleware' => ['auth']], function(){
     
     Route::post('/teams/{team}/notices/store', 'NoticePostController@notice_store');
     
+    Route::delete('/teams/{team}/notice_posts/{notice_post}/delete', 'NoticePostController@notice_delete');
+    
     Route::post('/teams/{team}/notice_posts/{notice_post}/comments', 'NoticePostController@notice_comment');
     
     Route::post('/teams/{team}/notice_posts/{notice_post}/goods', 'NoticePostController@notice_good');
+    
+    Route::delete('/teams/{team}/notice_posts/{notice_post}/comments/{notice_post_comment}/delete', 'NoticePostController@comment_delete');
     
     // TimeLinePostController
     
@@ -54,9 +58,13 @@ Route::group(['middleware' => ['auth']], function(){
     
     Route::post('/teams/{team}/time_lines/store', 'TimeLinePostController@time_line_store');
     
+    Route::delete('/teams/{team}/time_line_posts/{time_line_post}/delete', 'TimeLinePostController@time_line_delete');
+    
     Route::post('/teams/{team}/time_line_posts/{time_line_post}/comments', 'TimeLinePostController@time_line_comment');
     
     Route::post('/teams/{team}/time_line_posts/{time_line_post}/goods', 'TimeLinePostController@time_line_good');
+    
+    Route::delete('/teams/{team}/time_line_posts/{time_line_post}/comments/{time_line_post_comment}/delete', 'TimeLinePostController@comment_delete');
     
 
 });
