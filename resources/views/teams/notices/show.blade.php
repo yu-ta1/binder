@@ -25,6 +25,9 @@
             </div>
             <div class="post_boxs">
                 <div class="posts">
+                    <p class="user_name">
+                        {{DB::table('users')->where('id',$notice_post->user_id)->first()->name}}
+                    </p>
                     <p class="title">
                         {{$notice_post->title}}
                     </p>
@@ -58,6 +61,9 @@
                 <div class="comment_index">
                     @foreach ($notice_post_comments as $notice_post_comment)
                         <div class="comment_box">
+                            <p class="user_name2">
+                                {{DB::table('users')->where('id',$notice_post_comment->user_id)->first()->name}}
+                            </p>
                             <p class="comment_body">
                                 {{$notice_post_comment->body}}
                             </p>

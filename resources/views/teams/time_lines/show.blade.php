@@ -23,6 +23,9 @@
             </div>
             <div class="post_boxs">
                 <div class="posts">
+                    <p class="user_name">
+                        {{DB::table('users')->where('id',$time_line_post->user_id)->first()->name}}
+                    </p>
                     <p class="title">
                         {{$time_line_post->title}}
                     </p>
@@ -56,6 +59,9 @@
                 <div class="comment_index">
                     @foreach ($time_line_post_comments as $time_line_post_comment)
                         <div class="comment_box">
+                            <p class="user_name2">
+                                {{DB::table('users')->where('id',$time_line_post_comment->user_id)->first()->name}}
+                            </p>
                             <p class="comment_body">
                                 {{$time_line_post_comment->body}}
                             </p>

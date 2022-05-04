@@ -26,6 +26,9 @@
             <div class="post_boxs">
                 @foreach ($notice_posts as $notice_post)
                     <div class="posts">
+                        <p class="user_name">
+                            {{DB::table('users')->where('id',$notice_post->user_id)->first()->name}}
+                        </p>
                         <p class="title">
                             <a href="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/show" value="{{$notice_post->id}}">
                                 {{$notice_post->title}}

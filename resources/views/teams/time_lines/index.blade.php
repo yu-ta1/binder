@@ -24,6 +24,9 @@
             <div class="post_boxs">
                 @foreach ($time_line_posts as $time_line_post)
                     <div class="posts">
+                        <p class="user_name">
+                            {{DB::table('users')->where('id',$time_line_post->user_id)->first()->name}}
+                        </p>
                         <p class="title">
                             <a href="/teams/{{$team->id}}/time_line_posts/{{$time_line_post->id}}/show" value="{{$time_line_post->id}}">
                                 {{$time_line_post->title}}

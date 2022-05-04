@@ -10,6 +10,20 @@
     border-radius: 10px;
 }
 
+.user_name{
+    border-bottom: 1px solid #333333;
+    margin: 10px 10px 30px 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.user_name2{
+    border-bottom: 1px solid #333333;
+    margin: 10px 10px 0px 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
 .title{
     border-bottom: 1px solid #333333;
     margin: 10px;
