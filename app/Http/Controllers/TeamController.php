@@ -55,6 +55,7 @@ class TeamController extends Controller
     {
         $user=Auth::user();
         $team->name=$request['name'];
+        $team->overview=$request['overview'];
         $team->user_id=$user->id;
         $team->save();
         

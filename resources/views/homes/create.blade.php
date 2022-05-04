@@ -21,16 +21,27 @@
                     <h3 class="sub_title">チーム作成</h3>
                     <form action="/teams" method="POST">
                         @csrf
-                        <input class="form_team_search" type="text" name="name" placeholder="チーム名" value="{{ old('team.name') }}"/>
-                        <p class="name_error" style="color:red">{{ $errors->first('team.name') }}</p>
+                        <div class="title">
+                            <h3>チーム名</h3>
+                            <input class="form_team_search" type="text" name="name" placeholder="チーム名" value="{{ old('post.title') }}"/>
+                            <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+                        </div>
+                        <div class="body">
+                            <h3>概要</h3>
+                            <textarea class="form_team_search" name="overview" placeholder="概要">{{ old('post.body') }}</textarea>
+                            <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+                        </div>
                         <input class="form_team_search2" type="submit" value="作成"/>
                     </form>
                     <div class="team_box">
                         @foreach ($teams as $team)
                             @if(($team->users()->pluck('user_id')->contains(Auth::user()->id)))
-                                <ul class="team">
-                                    <li><a href="/teams/{{$team->id}}/notices/index" value="{{$team->id}}">{{$team->name}}</li>
-                                </ul>
+                                <div class="team">
+                                    <ul>
+                                        <li><a href="/teams/{{$team->id}}/notices/index" value="{{$team->id}}">{{$team->name}}</a></li>
+                                    </ul>
+                                    <p class="overview">概要：<br>{{$team->overview}}</p>
+                                </div>
                             @endif
                         @endforeach
                     </div>
