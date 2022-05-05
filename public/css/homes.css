@@ -1,13 +1,18 @@
+body{
+    background:linear-gradient(90deg,white 0%,white 27%,#EEEEEE 27%,#EEEEEE 100%);
+}
+
 .main_title{
-    padding: 10px;
-    margin: 30px 1% 150px 1%;
+    padding: 20px;
+    margin: 0px 1% 120px 1%;
     border-bottom: 3px solid #333333;
+    background-color: white;
 }
 
 .main_title_name{
     font-size: 60px;
-    color: red;
-    margin-bottom: 40px;
+    color: blue;
+    margin: 20px 0px 20px 30px;
 }
 
 .team_index{

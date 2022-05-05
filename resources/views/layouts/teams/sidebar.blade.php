@@ -9,7 +9,12 @@
     <body>
         <div class="wrapper clearfix">
             <aside class="main-sidebar" style="padding: 10px; margin-bottom: 10px; border-right: 2px solid #333333;">
-                <div class="team_name">{{$team->name}}</div>
+                <div class="team_name">
+                    {{$team->name}}
+                    <p class="overview">
+                        {{$team->overview}}
+                    </p>
+                </div>
                 <section class="sidebar">
                     <ul class="sidebar-menu">
                         <br>
