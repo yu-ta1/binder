@@ -27,21 +27,26 @@
                     <div class="team_box">
                         @foreach ($teams as $team)
                             <div class="team">
+                                <p class="join_button">
+                                    <form method="POST" action="/homes/{{$team->id}}/exit">
+                                        @csrf
+                                        @method('DELETE')
+                                        <p class="join_button">
+                                        @if(($team->users()->pluck('user_id')->contains(Auth::user()->id)))
+                                            <button class="button2" type="submit" name="team_id" value="{{$team->id}}" onClick="return Check()">退会</button>
+                                        @endif
+                                    </form>
+                                <p/>
                                 <form method="POST" action="/homes/join">
                                     @csrf
+                                    <p class="join_button">
+                                        @if(!($team->users()->pluck('user_id')->contains(Auth::user()->id)))
+                                            <button class="button2" type="submit" name="team_id" value="{{$team->id}}">参加</button>
+                                        @endif
+                                    </p>
                                     <p class="name">チーム名：{{ $team->name }}</p>
                                     <p class="name">参加メンバー：{{$team->users()->count()}}人</p>
                                     <p class="name_overview">概要：<br>{{$team->overview}}</p>
-                                    @if(!($team->users()->pluck('user_id')->contains(Auth::user()->id)))
-                                        <button class="button2" type="submit" name="team_id" value="{{$team->id}}">参加</button>
-                                    @endif
-                                </form>
-                                <form method="POST" action="/homes/{{$team->id}}/exit">
-                                    @csrf
-                                    @method('DELETE')
-                                    @if(($team->users()->pluck('user_id')->contains(Auth::user()->id)))
-                                        <button class="button2" type="submit" name="team_id" value="{{$team->id}}" onClick="return Check()">退会</button>
-                                    @endif
                                 </form>
                             </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
                         @endforeach

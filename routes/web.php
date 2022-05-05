@@ -32,37 +32,37 @@ Route::group(['middleware' => ['auth']], function(){
     
     // NoticePostController
     
-    Route::get('/teams/{team}/notices/index', 'NoticePostController@notice');
+    Route::get('/teams/{team}/notices/index', 'NoticePostController@index');
     
-    Route::get('/teams/{team}/notice_posts/{notice_post}/show', 'NoticePostController@notice_show');
+    Route::get('/teams/{team}/notice_posts/{notice_post}/show', 'NoticePostController@show');
     
-    Route::get('/teams/{team}/notices/create', 'NoticePostController@notice_create');
+    Route::get('/teams/{team}/notices/create', 'NoticePostController@create');
     
-    Route::post('/teams/{team}/notices/store', 'NoticePostController@notice_store');
+    Route::post('/teams/{team}/notices/store', 'NoticePostController@store');
     
-    Route::delete('/teams/{team}/notice_posts/{notice_post}/delete', 'NoticePostController@notice_delete');
+    Route::delete('/teams/{team}/notice_posts/{notice_post}/delete', 'NoticePostController@post_delete');
     
-    Route::post('/teams/{team}/notice_posts/{notice_post}/comments', 'NoticePostController@notice_comment');
+    Route::post('/teams/{team}/notice_posts/{notice_post}/comments', 'NoticePostController@comment');
     
-    Route::post('/teams/{team}/notice_posts/{notice_post}/goods', 'NoticePostController@notice_good');
+    Route::post('/teams/{team}/notice_posts/{notice_post}/goods', 'NoticePostController@good');
     
     Route::delete('/teams/{team}/notice_posts/{notice_post}/comments/{notice_post_comment}/delete', 'NoticePostController@comment_delete');
     
     // TimeLinePostController
     
-    Route::get('/teams/{team}/time_lines/index', 'TimeLinePostController@time_line');
+    Route::get('/teams/{team}/time_lines/index', 'TimeLinePostController@index');
     
-    Route::get('/teams/{team}/time_line_posts/{time_line_post}/show', 'TimeLinePostController@time_line_show');
+    Route::get('/teams/{team}/time_line_posts/{time_line_post}/show', 'TimeLinePostController@show');
     
-    Route::get('/teams/{team}/time_lines/create', 'TimeLinePostController@time_line_create');
+    Route::get('/teams/{team}/time_lines/create', 'TimeLinePostController@create');
     
-    Route::post('/teams/{team}/time_lines/store', 'TimeLinePostController@time_line_store');
+    Route::post('/teams/{team}/time_lines/store', 'TimeLinePostController@store');
     
-    Route::delete('/teams/{team}/time_line_posts/{time_line_post}/delete', 'TimeLinePostController@time_line_delete');
+    Route::delete('/teams/{team}/time_line_posts/{time_line_post}/delete', 'TimeLinePostController@post_delete');
     
-    Route::post('/teams/{team}/time_line_posts/{time_line_post}/comments', 'TimeLinePostController@time_line_comment');
+    Route::post('/teams/{team}/time_line_posts/{time_line_post}/comments', 'TimeLinePostController@comment');
     
-    Route::post('/teams/{team}/time_line_posts/{time_line_post}/goods', 'TimeLinePostController@time_line_good');
+    Route::post('/teams/{team}/time_line_posts/{time_line_post}/goods', 'TimeLinePostController@good');
     
     Route::delete('/teams/{team}/time_line_posts/{time_line_post}/comments/{time_line_post_comment}/delete', 'TimeLinePostController@comment_delete');
     

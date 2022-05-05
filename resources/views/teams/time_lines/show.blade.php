@@ -62,7 +62,7 @@
                         @csrf
                         <div class="body">
                             <textarea name="comment[body]" placeholder="コメント">{{ old('comment.body') }}</textarea>
-                            <p class="body__error" style="color:red">{{ $errors->first('comment.body') }}</p>
+                            <p class="body_error">{{ $errors->first('comment.body') }}</p>
                             <input type="submit" value="送信"/>
                             <div class="back"><p>[<a href="/teams/{{$team->id}}/time_lines/index">タイムラインに戻る</a>]</p></div>
                         </div>

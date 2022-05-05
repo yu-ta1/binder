@@ -16,7 +16,7 @@ class CreateTimeLinePostsTable extends Migration
         Schema::create('time_line_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 50);
-            $table->string('body', 2000);
+            $table->string('body', 1000);
             $table->integer('user_id')->unsigned();
             $table->integer('time_line_id')->unsigned();
             $table->timestamps();

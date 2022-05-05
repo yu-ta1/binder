@@ -23,13 +23,13 @@
                         @csrf
                         <div class="title">
                             <h3>チーム名</h3>
-                            <input class="form_team_search" type="text" name="name" placeholder="チーム名" value="{{ old('post.title') }}"/>
-                            <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+                            <input class="form_team_search" type="text" name="name" placeholder="チーム名" value="{{ old('name') }}"/>
+                            <p class="title_error">{{ $errors->first('name') }}</p>
                         </div>
                         <div class="body">
                             <h3>概要</h3>
-                            <textarea class="form_team_search" name="overview" placeholder="概要">{{ old('post.body') }}</textarea>
-                            <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+                            <textarea class="form_team_search" name="overview" placeholder="概要">{{ old('overview') }}</textarea>
+                            <p class="body_error">{{ $errors->first('overview') }}</p>
                         </div>
                         <input class="form_team_search2" type="submit" value="作成"/>
                     </form>

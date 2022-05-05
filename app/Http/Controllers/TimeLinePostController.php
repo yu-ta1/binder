@@ -10,24 +10,32 @@ use App\Time_Line_Post;
 use App\Time_Line_Post_Comment;
 use App\Time_Line_Post_Good;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
+use App\Http\Requests\CommentRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TimeLinePostController extends Controller
 {
     
-    public function time_line(Team $team, Time_Line_Post $time_line_post)
+    public function index(Team $team, Time_Line_Post $time_line_post)
     {
         $time_line=$team->time_lines()->first();
         return view('teams/time_lines/index')->with(['team'=>$team,'time_line_posts'=>$time_line_post->getPaginateByLimit($time_line->id)]);
     }
     
-    public function time_line_create(Team $team)
+    public function show(Team $team, Time_Line_Post $time_line_post)
+    {
+        $time_line_post_comments=DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->get();
+        return view('teams/time_lines/show')->with(['team'=>$team,'time_line_post'=>$time_line_post,'time_line_post_comments'=>$time_line_post_comments]);
+    }
+    
+    public function create(Team $team)
     {
         return view('teams/time_lines/create')->with(['team'=>$team ]);
     }
     
-    public function time_line_store(Request $request, Time_Line_Post $time_line_post, Team $team)
+    public function store(PostRequest $request, Time_Line_Post $time_line_post, Team $team)
     {
         $user=Auth::user();
         $time_line_post->title=$request['post']['title'];
@@ -39,13 +47,7 @@ class TimeLinePostController extends Controller
         return redirect('/teams/'.$team->id.'/time_lines/index');
     }
     
-    public function time_line_show(Team $team, Time_Line_Post $time_line_post)
-    {
-        $time_line_post_comments=DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->get();
-        return view('teams/time_lines/show')->with(['team'=>$team,'time_line_post'=>$time_line_post,'time_line_post_comments'=>$time_line_post_comments]);
-    }
-    
-    public function time_line_delete(Request $request, Team $team, Time_Line_Post $time_line_post)
+    public function post_delete(Request $request, Team $team, Time_Line_Post $time_line_post)
     {
         if(!DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->doesntExist()){
             DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->delete();
@@ -57,7 +59,7 @@ class TimeLinePostController extends Controller
         return redirect('/teams/'.$team->id.'/time_lines/index');
     }
     
-    public function time_line_comment(Request $request, Team $team, Time_Line_Post $time_line_post, Time_Line_Post_Comment $time_line_post_comment)
+    public function comment(CommentRequest $request, Team $team, Time_Line_Post $time_line_post, Time_Line_Post_Comment $time_line_post_comment)
     {
         $user=Auth::user();
         $time_line_post_comment->body=$request['comment']['body'];
@@ -68,7 +70,7 @@ class TimeLinePostController extends Controller
         return redirect('/teams/'.$team->id.'/time_line_posts/'.$time_line_post->id.'/show');
     }
     
-    public function time_line_good(Request $request, Team $team, Time_Line_Post $time_line_post, Time_Line_Post_Good $time_line_post_good)
+    public function good(Request $request, Team $team, Time_Line_Post $time_line_post, Time_Line_Post_Good $time_line_post_good)
     {
         $user=Auth::user();
         if(DB::table('time_line_post_goods')->where('time_line_post_id',$time_line_post->id)->where('user_id',$user->id)->doesntExist()){

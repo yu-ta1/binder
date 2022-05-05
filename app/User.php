@@ -66,24 +66,4 @@ class User extends Authenticatable
     public function time_line_post_goods(){
         return $this->hasMany('App\Time_Line_Post_Good');
     }
-    
-    public function files(){
-        return $this->hasMany('App\File');
-    }
-    
-    public function posts(){
-        return $this->hasMany('App\Post');
-    }
-    
-    public function comments(){
-        return $this->hasMany('App\Comment');
-    }
-    
-    public function goods(){
-        return $this->hasMany('App\Good');
-    }
-    
-    public function tasks(){
-        return $this->hasMany('App\Task');
-    }
 }

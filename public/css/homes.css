@@ -66,11 +66,16 @@
 }
 
 .button2{
-    width: 100px;
-    height: 40px;
+    width: 60px;
+    height: 35px;
     margin: 20px 20px 50px 20px;
-    font-size: 15px
+    font-size: 15px;
 }
+
+.join_button{
+    float: right;
+}
+
 .overview{
     font-size: 15px;
     white-space: pre-line;
@@ -80,4 +85,14 @@
     margin: 30px 0px;
     font-size: 20px;
     white-space: pre-line;
+}
+
+.title_error{
+    color: red;
+    font-size: 20px;
+}
+
+.body_error{
+    color: red;
+    font-size: 20px;
 }

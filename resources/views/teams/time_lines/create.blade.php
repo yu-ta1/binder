@@ -23,12 +23,12 @@
                     <div class="title">
                         <h3>Title</h3>
                         <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
-                        <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+                        <p class="title_error">{{ $errors->first('post.title') }}</p>
                     </div>
                     <div class="body">
                         <h3>Body</h3>
                         <textarea name="post[body]" placeholder="投稿内容">{{ old('post.body') }}</textarea>
-                        <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+                        <p class="body_error">{{ $errors->first('post.body') }}</p>
                     </div>
                     <input class="button2" type="submit" value="投稿"/>
                 </form>

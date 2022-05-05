@@ -7,6 +7,7 @@ use App\Team;
 use App\Notice;
 use App\Time_Line;
 use Illuminate\Http\Request;
+use App\Http\Requests\TeamRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -51,7 +52,7 @@ class TeamController extends Controller
         return redirect('/homes/search');
     }
     
-    public function store(Request $request, Team $team, Notice $notice, Time_Line $time_line)
+    public function store(TeamRequest $request, Team $team, Notice $notice, Time_Line $time_line)
     {
         $user=Auth::user();
         $team->name=$request['name'];
