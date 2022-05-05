@@ -8,6 +8,7 @@
     margin: 100px 0px 50px 0px;
     border: 2px solid #333333;
     border-radius: 10px;
+    background-color: #FFFFFF;
 }
 
 .user_name{
@@ -69,12 +70,24 @@
     margin: 50px 0px;
     border: 2px solid #333333;
     border-radius: 10px;
+    background-color: #FFFFFF;
 }
 
 .good{
     font-size: 20px;
     margin: 10px;
     padding-top: 10px;
+}
+
+.good2{
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.good3{
+    background-color: #FFFFFF;
+    color: red;
+    border-radius: 10px;
 }
 
 .back{

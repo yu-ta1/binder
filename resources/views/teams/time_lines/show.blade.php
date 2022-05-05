@@ -41,12 +41,21 @@
                     <P class='comment'>
                         コメント{{DB::table('time_line_post_comments')->where('time_line_post_id',$time_line_post->id)->count()}}
                     </P>
-                    <form action="/teams/{{$team->id}}/time_line_posts/{{$time_line_post->id}}/goods" method="POST">
-                        @csrf
-                        <P class='good'>
-                            <input type="submit" value="いいね"/>{{DB::table('time_line_post_goods')->where('time_line_post_id',$time_line_post->id)->count()}}
-                        </P>
-                    </form>
+                    @if(DB::table('time_line_post_goods')->where('time_line_post_id',$time_line_post->id)->where('user_id',Auth::user()->id)->doesntExist())
+                        <form action="/teams/{{$team->id}}/time_line_posts/{{$time_line_post->id}}/goods" method="POST">
+                            @csrf
+                            <P class='good'>
+                                <button class='good2' type="submit">♡いいね</button>{{DB::table('time_line_post_goods')->where('time_line_post_id',$time_line_post->id)->count()}}
+                            </P>
+                        </form>
+                    @else
+                        <form action="/teams/{{$team->id}}/time_line_posts/{{$time_line_post->id}}/goods" method="POST">
+                            @csrf
+                            <P class='good'>
+                                <button class="good3" type="submit">♥いいね</button>{{DB::table('time_line_post_goods')->where('time_line_post_id',$time_line_post->id)->count()}}
+                            </P>
+                        </form>
+                    @endif
                 </div>
                 <div>
                     <form action="/teams/{{$team->id}}/time_line_posts/{{$time_line_post->id}}/comments" method="POST">

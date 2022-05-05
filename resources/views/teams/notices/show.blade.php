@@ -41,12 +41,21 @@
                     <P class='comment'>
                         コメント{{DB::table('notice_post_comments')->where('notice_post_id',$notice_post->id)->count()}}
                     </P>
-                    <form action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/goods" method="POST">
-                        @csrf
-                        <P class='good'>
-                            <input type="submit" value="いいね"/>{{DB::table('notice_post_goods')->where('notice_post_id',$notice_post->id)->count()}}
-                        </P>
-                    </form>
+                    @if(DB::table('notice_post_goods')->where('notice_post_id',$notice_post->id)->where('user_id',Auth::user()->id)->doesntExist())
+                        <form action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/goods" method="POST">
+                            @csrf
+                            <P class='good'>
+                                <button class='good2' type="submit">♡いいね</button>{{DB::table('notice_post_goods')->where('notice_post_id',$notice_post->id)->count()}}
+                            </P>
+                        </form>
+                    @else
+                        <form action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/goods" method="POST">
+                            @csrf
+                            <P class='good'>
+                                <button class="good3" type="submit">♥いいね</button>{{DB::table('notice_post_goods')->where('notice_post_id',$notice_post->id)->count()}}
+                            </P>
+                        </form>
+                    @endif
                 </div>
                 <div>
                     <form action="/teams/{{$team->id}}/notice_posts/{{$notice_post->id}}/comments" method="POST">
