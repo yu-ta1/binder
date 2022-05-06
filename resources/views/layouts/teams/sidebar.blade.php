@@ -20,6 +20,7 @@
                         <br>
                         <li class="menu"><a href="/homes/mypage">マイページ</a></li>
                         <li class="menu"><a href="/homes/search">チーム探し</a></li>
+                        <li class="menu"><a href="/homes/create">チーム作成</a></li>
                         <br>
                         <li class="menu"><a href="/teams/{{$team->id}}/notices/index">おしらせ</a></li>
                         <li class="menu"><a href="/teams/{{$team->id}}/time_lines/index">タイムライン</a></li>
