@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth']], function(){
     
     Route::post('/teams', 'TeamController@store');
     
+    Route::get('/teams/{team}/information', 'TeamController@information');
+    
     // NoticePostController
     
     Route::get('/teams/{team}/notices/index', 'NoticePostController@index');

@@ -18,7 +18,7 @@
                 <h1 class="main_title_name">タイムライン</h1>
                 <form action="/teams/{{$team->id}}/time_lines/create" method="GET">
                     @csrf
-                    <input class="form_team_search2" type="submit" value="投稿">
+                    <input class="form_team_search3" type="submit" value="投稿">
                 </form>
             </div>
             <div class="post_boxs">

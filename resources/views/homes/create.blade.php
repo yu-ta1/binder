@@ -21,17 +21,15 @@
                     <h3 class="sub_title">チーム作成</h3>
                     <form action="/teams" method="POST">
                         @csrf
-                        <div class="title">
-                            <h3>チーム名</h3>
+                        <div class="team_index3">
+                            <h3 class="title2">チーム名</h3>
                             <input class="form_team_search" type="text" name="name" placeholder="チーム名" value="{{ old('name') }}"/>
                             <p class="title_error">{{ $errors->first('name') }}</p>
-                        </div>
-                        <div class="body">
-                            <h3>概要</h3>
+                            <h3  class="title2">概要</h3>
                             <textarea class="form_team_search" name="overview" placeholder="概要">{{ old('overview') }}</textarea>
                             <p class="body_error">{{ $errors->first('overview') }}</p>
+                            <div class="form_team_search2"><input type="submit" value="作成"/></div>
                         </div>
-                        <input class="form_team_search2" type="submit" value="作成"/>
                     </form>
                     <div class="team_box">
                         @foreach ($teams as $team)

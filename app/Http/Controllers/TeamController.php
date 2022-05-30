@@ -70,4 +70,8 @@ class TeamController extends Controller
         return redirect('/homes/mypage');
     }
     
+    public function information(Team $team,User $user)
+    {
+        return view('/teams/information')->with(['team'=>$team,'users'=>$user->get()]);  
+    }
 }

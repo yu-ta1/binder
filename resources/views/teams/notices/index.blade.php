@@ -19,7 +19,7 @@
                 @if(DB::table('team_user')->where('team_id',$team->id)->where('user_id',Auth::user()->id)->first()->role == 'オーナー')
                     <form action="/teams/{{$team->id}}/notices/create" method="GET">
                         @csrf
-                        <input class="form_team_search2" type="submit" value="投稿">
+                        <input class="form_team_search3" type="submit" value="投稿">
                     </form>
                 @endif
             </div>

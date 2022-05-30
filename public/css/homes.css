@@ -10,14 +10,14 @@ body{
 }
 
 .main_title_name{
-    font-size: 60px;
+    font-size: 4vw;
     color: blue;
-    margin: 20px 0px 20px 30px;
+    margin: 3%;
 }
 
 .team_index{
-    width: 50%;
-    margin:0 auto;
+    width: 60%;
+    margin: auto;
 }
 
 .team_index2{
@@ -28,41 +28,52 @@ body{
     background-color: #FFFFFF;
 }
 
+.team_index3{
+    margin: 8% 4% 15% 4%;
+    padding-bottom: 8%;
+    border-bottom: 3px solid #333333 ;
+}
+
 .sub_title{
-    margin: 20px 20px 40px 20px;
-    font-size: 50px;
+    margin: 8% 4% 15% 4%;
+    padding-bottom: 8%;
+    font-size: 3vw;
+    border-bottom: 3px solid #333333 ;
+}
+
+.title2{
+    margin-left: 4%;
+    font-size: 2vw;
 }
 
 .button{
-    width: 100px;
+    width: 25%;
     height: 40px;
-    margin: 60px 20px 0px 20px;
-    font-size: 15px;
+    margin: 10% 20px 0px 20px;
+    font-size: 1vw;
     float: right;
 }
 
 .team_box{
-    border-top: 3px solid #333333 ;
     margin: 10% 3% 3% 3%;
 }
 
 .team{
     border-bottom: 1px solid #333333;
-    margin: 60px 20px 60px 20px;
+    margin: 10% 4% 10% 4%;
+    font-size: 2vw;
 }
 
 .form_team_search{
-    width: 250px;
+     width: 60%;
     height: 40px;
-    margin: 20px 0px 0px 20px;
-    font-size: 15px;
+    margin: 4%;
+    font-size: 1vw;
 }
 
 .form_team_search2{
-    width: 80px;
-    height: 40px;
-    margin: 20px 10px 0px 10px;
-    font-size: 15px
+    margin: 4%;
+    font-size: 1.5vw;
 }
 
 .name{
@@ -82,8 +93,14 @@ body{
 }
 
 .overview{
-    font-size: 15px;
+    font-size: 1vw;
     white-space: pre-line;
+}
+
+.overview2{
+    font-size: 2vw;
+    margin: 3%;
+    
 }
 
 .name_overview{

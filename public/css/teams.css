@@ -1,5 +1,5 @@
 .post_boxs{
-    width: 60%;
+    width: 65%;
     margin:0 auto;
 }
 
@@ -30,6 +30,7 @@
     margin: 10px;
     padding-bottom: 10px;
     font-size: 25px;
+    /*font-size: 2.5vw;*/
 }
 
 .body{
@@ -106,4 +107,30 @@
     height: 30px;
     margin: 10px;
     font-size: 10px;
+}
+
+.member_index{
+    margin: 5%;
+    font-size: 3vw;
+}
+
+.rows{
+    Width: 80%;
+    margin: 10%;
+}
+
+.th1{
+    padding: 5%;
+    font-size: 2vw;
+    background-color: #EEEEEE;
+}
+
+.td1{
+    padding: 5%;
+    font-size: 2vw;
+}
+
+.form_team_search3{
+    margin: 2% 0% 0% 1%;
+    font-size: 1.5vw;
 }

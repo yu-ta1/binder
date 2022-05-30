@@ -10,7 +10,7 @@
         <div class="wrapper clearfix">
             <aside class="main-sidebar" style="padding: 10px; margin-bottom: 10px; border-right: 2px solid #333333;">
                 <div class="team_name">
-                    {{$team->name}}
+                    <a href="/teams/{{$team->id}}/information">{{$team->name}}</a>
                     <p class="overview">
                         {{$team->overview}}
                     </p>
